@@ -3,3 +3,7 @@ body {
     text-align: center;
     margin: 20vw;
 }
+
+h1:hover{
+    color: #79BFC8;
+}
