@@ -1,11 +1,13 @@
 body {
     color: #79BFCB;
+    text-align: center;
 }
 
 box {
     margin: auto;
     width: 50%;
     text-align: center;
+    padding: 20vw;
 }
 
 h1, h2 {
