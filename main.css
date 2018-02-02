@@ -2,10 +2,13 @@ body {
     color: #79BFCB;
 }
 
+box {
+    margin: 20vw;
+    text-align: center;
+}
+
 h1, h2 {
     color: white;
-    text-align: center;
-    margin: 20vw;
 }
 
 a {
