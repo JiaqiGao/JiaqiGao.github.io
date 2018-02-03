@@ -10,7 +10,7 @@ box {
     padding: 20vw;
 }
 
-h1, h2 {
+h1 {
     color: white;
 }
 
@@ -19,10 +19,10 @@ a {
     color: white;
 }
 
-h1:hover{
+h1:hover {
     color: #79BFC8;
 }
 
-h2:hover{
+h2 {
     color: #79BFC8;
 }
