@@ -1,6 +1,5 @@
 body {
     color: #79BFCB;
-    text-align: center;
 }
 
 box {
@@ -10,19 +9,45 @@ box {
     padding: 20vw;
 }
 
-h1 {
-    color: white;
-}
-
 a {
     text-decoration: none;
     color: white;
 }
 
 h1:hover {
-    color: #79BFC8;
+    color: white;
 }
 
 h2 {
+    font-family: "Courier";
     color: #79BFC8;
+    margin-left: 20vw;
+    text-align: left;
+}
+
+h1{
+  color: #79BFC8;
+  font-family: "Courier";
+  white-space: nowrap;
+  overflow: hidden;
+  width: 50em;
+  margin-left: 20vw;
+  text-align: left;
+}
+
+#p1{
+  animation: type 5s steps(60, end);    
+  animation-delay: 1s;
+}
+
+#p2{
+    animation: type 4.3s steps(60, end);  
+    animation-delay: 1s;
+}
+
+@keyframes type{
+  from {
+    width: 0;
+    opacity: 1;
+  }
 }
