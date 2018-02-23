@@ -1,5 +1,7 @@
 body {
     color: #79BFCB;
+    margin-left: 20vw;
+    margin-right: 20vw;
 }
 
 box {
@@ -21,33 +23,31 @@ h1:hover {
 h2 {
     font-family: "Courier";
     color: #79BFC8;
-    margin-left: 20vw;
     text-align: left;
 }
 
-h1{
-  color: #79BFC8;
-  font-family: "Courier";
-  white-space: nowrap;
-  overflow: hidden;
-  width: 50em;
-  margin-left: 20vw;
-  text-align: left;
+h1 {
+    color: #79BFC8;
+    font-family: "Courier";
+    white-space: nowrap;
+    overflow: hidden;
+    width: 50em;
+    text-align: left;
 }
 
-#p1{
-  animation: type 5s steps(60, end);    
-  animation-delay: 1s;
-}
-
-#p2{
-    animation: type 4.3s steps(60, end);  
+#p1 {
+    animation: type 5s steps(60, end);
     animation-delay: 1s;
 }
 
-@keyframes type{
-  from {
-    width: 0;
-    opacity: 1;
-  }
+#p2 {
+    animation: type 4.3s steps(60, end);
+    animation-delay: 1s;
+}
+
+@keyframes type {
+    from {
+        width: 0;
+        opacity: 1;
+    }
 }
