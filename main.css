@@ -1,53 +1,33 @@
 body {
-    color: #79BFCB;
-    margin-left: 10vw;
-    margin-right: 10vw;
-}
-
-box {
-    margin: auto;
-    width: 50%;
+  font-family: "Courier"; }
+  body .col-md-9 {
+    margin-top: 2em; }
+  body #construction {
     text-align: center;
-    padding: 20vw;
-}
+    font-size: 2em;
+    margin: 4em; }
 
-a {
-    text-decoration: none;
-    color: white;
-}
+.social-media {
+  margin: 2em;
+  position: fixed; }
+  .social-media a {
+    color: #79BFCB; }
+    .social-media a a:hover {
+      color: indianred; }
 
-h1:hover {
-    color: white;
-}
-
-h2 {
-    font-family: "Courier";
-    color: #79BFC8;
-    text-align: left;
-}
-
-h1 {
-    color: #79BFC8;
-    font-family: "Courier";
-    white-space: nowrap;
-    overflow: hidden;
-    width: 50em;
-    text-align: left;
-}
+#date {
+  text-align: center;
+  padding: 1em;
+  font-size: x-large;
+  color: #67b168; }
 
 #p1 {
-    animation: type 5s steps(60, end);
-    animation-delay: 1s;
-}
-
-#p2 {
-    animation: type 4.3s steps(60, end);
-    animation-delay: 1s;
-}
+  animation: type 5s steps(60, end);
+  animation-delay: 1s; }
 
 @keyframes type {
-    from {
-        width: 0;
-        opacity: 1;
-    }
-}
+  from {
+    width: 0;
+    opacity: 1; } }
+
+/*# sourceMappingURL=main.css.map */

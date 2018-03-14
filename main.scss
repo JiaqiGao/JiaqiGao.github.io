@@ -1,0 +1,48 @@
+body {
+  font-family: "Courier";
+
+  .col-md-9 {
+    margin-top: 2em;
+  }
+
+  #construction {
+    text-align: center;
+    font-size: 2em;
+    margin: 4em;
+  }
+
+}
+
+.social-media {
+  margin: 2em;
+  position: fixed;
+
+  a {
+    color: #79BFCB;
+
+    a:hover {
+      color: indianred;
+    }
+  }
+}
+
+#date {
+  text-align: center;
+  padding: 1em;
+  font-size: x-large;
+  color: #67b168;
+}
+
+
+#p1 {
+  animation: type 5s steps(60, end);
+  animation-delay: 1s;
+}
+
+
+@keyframes type {
+  from {
+  width: 0;
+  opacity: 1;
+  }
+}

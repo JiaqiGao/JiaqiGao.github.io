@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Prociono');
+
+body {
+    font-family: 'Prociono', serif;
+}
+
+.panel-body  {
+    word-break: break-all;
+    
+}		    
+
+.story-title{
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+}
+
+.story-text {
+    /* font-family: 'Amatic SC', cursive; */
+}
+
+li.greet {
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    color:#4c5760;
+    line-height:2em;
+}
+
+img {
+    border-radius: 0.5em;
+}
+
+img:hover {
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.modal.fade .modal-dialog{
+    width:90%;
+}
+
+.modal-body{
+    margin:4%;
+}
+
+.equal-height{
+  display:table;
+  padding:25px;
+}
+
+.equal-height [class*="col-"]{
+  float:none;
+  display:table-cell;
+  vertical-align:top;
+}
+
+.tooltip-wide .tooltip{
+    width:400px;
+}
+
+
+.lb-data .lb-caption{
+    font-size:30px;
+    font-weight:700;
+    line-height:2em
+}
+
+.index{
+    max-width: 500px;
+    min-width: 175px;
+}
