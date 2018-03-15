@@ -13,6 +13,7 @@ $(document).ready(function(){
 
 });
 
+
 function time() {
     var d = new Date();
     var h = d.getHours();
