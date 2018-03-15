@@ -18,12 +18,20 @@ function time() {
     var h = d.getHours();
     var m = d.getMinutes();
     var s = d.getSeconds();
+    var wk = d.getDay();
+
+    var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     m = checkTime(m);
     s = checkTime(s);
 
     var date = document.getElementById("date");
-    date.innerHTML = d.getMonth() + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
-    date.innerHTML += h + ":" + m + ":" + s;
+    date.innerHTML = weekdays[wk] + " " + d.getMonth() + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
+
+    if(h > 12){
+        date.innerHTML += h-12 + ":" + m + ":" + s + "PM";
+    }else{
+        date.innerHTML += h + ":" + m + ":" + s + "AM";
+    }
     var t = setTimeout(time, 500);
 }
 
