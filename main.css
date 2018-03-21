@@ -35,5 +35,8 @@ body {
   from {
     width: 0;
     opacity: 1; } }
+#earthtop {
+  color: black;
+  margin-top: 3%; }
 
 /*# sourceMappingURL=main.css.map */
