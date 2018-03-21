@@ -12,8 +12,10 @@ body {
   position: static; }
   .social-media a {
     color: #79BFCB; }
-    .social-media a a:hover {
-      color: indianred; }
+  .social-media a:hover {
+    color: indianred; }
+  .social-media #name:hover {
+    background-color: highlight; }
 
 .post {
   font-family: Georgia;

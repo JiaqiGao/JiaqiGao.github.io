@@ -19,10 +19,14 @@ body {
 
   a {
     color: #79BFCB;
+  }
 
-    a:hover {
-      color: indianred;
-    }
+  a:hover {
+    color: indianred;
+  }
+
+  #name:hover {
+    background-color: highlight;
   }
 }
 
