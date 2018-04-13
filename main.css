@@ -14,12 +14,15 @@ body {
     color: #79BFCB; }
   .social-media a:hover {
     color: indianred; }
+  .social-media #name:hover {
+    color: indianred; }
 
 .post {
   font-family: Georgia;
   margin: 2em;
-  margin-left: 4em;
-  margin-right: 4em; }
+  margin-left: 2em;
+  margin-right: 4em;
+  font-size: 1.2em; }
 
 #date {
   text-align: center;
