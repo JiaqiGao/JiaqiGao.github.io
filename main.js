@@ -24,9 +24,9 @@ function time() {
     var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     m = checkTime(m);
     s = checkTime(s);
-
+    month = d.getMonth()+1;
     var date = document.getElementById("date");
-    date.innerHTML = weekdays[wk] + " " + d.getMonth() + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
+    date.innerHTML = weekdays[wk] + " " + month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
 
     if(h > 12){
         date.innerHTML += h-12 + ":" + m + ":" + s + "PM";
