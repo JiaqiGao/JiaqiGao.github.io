@@ -9,7 +9,7 @@ body {
 
 .social-media {
   margin: 2em;
-  position: static; }
+  position: fixed; }
   .social-media a {
     color: #79BFCB; }
   .social-media a:hover {
