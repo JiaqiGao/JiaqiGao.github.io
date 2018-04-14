@@ -77,14 +77,12 @@ body {
     color: #67b168;
   }
 
-
   #p1 {
     animation: type 5s steps(60, end);
     animation-delay: 1s;
   }
 
 }
-
 
 @keyframes type {
   from {
