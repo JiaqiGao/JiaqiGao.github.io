@@ -1,13 +1,21 @@
 $(document).ready(function(){
-    var name = document.getElementById("name");
+    var name_desktop = document.getElementById("name_desktop");
+    var name_mobile = document.getElementById("name_mobile");
     var motivation = document.getElementById("motivation");
 
-    name.addEventListener("click", function(){
-        if (name.innerHTML == "Jiaqi Gao"){
-            name.innerHTML = "高家琪";
-           // motivation.innerHTML = "\"我记忆其实不是很好，所以做个博客也许是个好主意\" -- 我，一月 2018"
+    name_desktop.addEventListener("click", function(){
+        if (name_desktop.innerHTML == "Jiaqi Gao"){
+            name_desktop.innerHTML = "高家琪";
         }else{
-            name.innerHTML = "Jiaqi Gao";
+            name_desktop.innerHTML = "Jiaqi Gao";
+        }
+    })
+
+    name_mobile.addEventListener("click", function(){
+        if (name_mobile.innerHTML == "Jiaqi Gao"){
+            name_mobile.innerHTML = "高家琪";
+        }else{
+            name_mobile.innerHTML = "Jiaqi Gao";
         }
     })
 
