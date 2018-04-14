@@ -22,6 +22,8 @@ body {
   body .mobile-view ul {
     list-style-type: none;
     display: inline-block; }
+  body .mobile-view a {
+    color: #79BFCB; }
   body .mobile-view .right {
     text-align: left; }
   body .mobile-view li {
