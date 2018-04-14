@@ -36,6 +36,13 @@ body {
 
   }
 
+  .desktop-view {
+    display: none;
+    @media screen and (min-width: $mobile-max) {
+      display: block;
+    }
+  }
+
   .mobile-view {
 
     ul {

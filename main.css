@@ -19,6 +19,11 @@ body {
       color: indianred; }
     body .social-media #name_desktop:hover {
       color: indianred; }
+  body .desktop-view {
+    display: none; }
+    @media screen and (min-width: 999px) {
+      body .desktop-view {
+        display: block; } }
   body .mobile-view ul {
     list-style-type: none;
     display: inline-block; }
