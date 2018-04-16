@@ -35,7 +35,7 @@ function time() {
     month = d.getMonth()+1;
     var date = document.getElementById("date");
     date.innerHTML = weekdays[wk] + " " + month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
-
+    date.innerHTML += h-12 + ":" + m + ":" + s;
     var t = setTimeout(time, 500);
 }
 
