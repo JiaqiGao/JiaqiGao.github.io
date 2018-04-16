@@ -36,11 +36,6 @@ function time() {
     var date = document.getElementById("date");
     date.innerHTML = weekdays[wk] + " " + month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
 
-    if(h > 12){
-        date.innerHTML += h-12 + ":" + m + ":" + s + "PM";
-    }else{
-        date.innerHTML += h + ":" + m + ":" + s + "AM";
-    }
     var t = setTimeout(time, 500);
 }
 
