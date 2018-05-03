@@ -34,7 +34,7 @@ function time() {
     s = checkTime(s);
     month = d.getMonth()+1;
     var date = document.getElementById("date");
-    date.innerHTML = weekdays[wk] + " " + month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
+    date.innerHTML = "It's " + weekdays[wk] + " " + month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
     date.innerHTML += h + ":" + m + ":" + s;
     var t = setTimeout(time, 500);
 }
