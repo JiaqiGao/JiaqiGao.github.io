@@ -34,7 +34,10 @@ function time() {
     s = checkTime(s);
     month = d.getMonth()+1;
     var date = document.getElementById("date");
-    date.innerHTML = "It's " + weekdays[wk] + " " + month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
+    date.innerHTML = "It is " + weekdays[wk] + " "
+    if (weekdays[wk] == "Wednesday")
+          date.innerHTML += "my dudes <br>" 
+    date.innerHTML += month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
     date.innerHTML += h + ":" + m + ":" + s;
     var t = setTimeout(time, 500);
 }
