@@ -7,7 +7,7 @@ DAT.Globe = function() {
   var mesh, point;
 
   var x = -0.2;
-  var y = -0.5;
+  var y = -0.2;
 
   function init() {
       camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.innerHeight, 0.01, 10 )
@@ -66,9 +66,9 @@ DAT.Globe = function() {
       if(event.clientX < window.innerWidth/2 && x > 0)
               x = -0.1
       if(event.clientY > window.innerHeight/2 && y < 0)
-              y = 0.5
+              y = 0.1
       if(event.clientY < window.innerHeight/2 && y > 0)
-              y = -0.5
+              y = -0.1
   }
 
   function animate(e) {
