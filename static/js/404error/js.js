@@ -74,8 +74,8 @@ DAT.Globe = function() {
   function animate(e) {
       requestAnimationFrame( animate )
       document.addEventListener("click", positioning)
-      mesh.rotation.x += 0.003 * x
-      mesh.rotation.y += 0.003 * y
+      mesh.rotation.x += 0.03 * x
+      mesh.rotation.y += 0.03 * y
       renderer.render( scene, camera )
 
   }
