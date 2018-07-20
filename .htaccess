@@ -10,4 +10,3 @@ DirectoryIndex index.html
 order deny,allow
 RewriteCond %{HTTPS} off          [OR]
 RewriteCond %{HTTP_HOST} ^www\.   [NC]
-RewriteRule ^ https://domain.tld%{REQUEST_URI} [R=301,L,NE]
