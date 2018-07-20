@@ -6,6 +6,17 @@ body {
     text-align: center;
     font-size: 1em;
     margin: 4em; }
+  body #blog {
+    text-align: right;
+    margin-right: 8vw; }
+  body #first {
+    display: none; }
+    body #first img, body #first p, body #first h3 {
+      min-width: 50vw;
+      max-width: 65vw;
+      margin-left: auto;
+      margin-right: auto;
+      display: block; }
   body .social-media {
     margin: 2em;
     display: none; }

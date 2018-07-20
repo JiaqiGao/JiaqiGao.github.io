@@ -2,6 +2,8 @@ $(document).ready(function(){
     var name_desktop = document.getElementById("name_desktop");
     var name_mobile = document.getElementById("name_mobile");
     var motivation = document.getElementById("motivation");
+    var blog = document.getElementById("blog");
+
 
     name_desktop.addEventListener("click", function(){
         if (name_desktop.innerHTML == "Jiaqi Gao"){
@@ -16,6 +18,20 @@ $(document).ready(function(){
             name_mobile.innerHTML = "高家琪";
         }else{
             name_mobile.innerHTML = "Jiaqi Gao";
+        }
+    })
+
+    blog.addEventListener("click", function(){
+        if (blog.innerHTML == "Blog &gt;"){
+            document.getElementById('bio').style.display = 'none';
+            document.getElementById('blog').style.textAlign = 'left';
+            document.getElementById('first').style.display = 'block';
+            blog.innerHTML = "< Back"
+        }else{
+            document.getElementById('bio').style.display = 'block';
+            document.getElementById('blog').style.textAlign = 'right';
+            document.getElementById('first').style.display = 'none';
+            blog.innerHTML = "Blog >"
         }
     })
 
