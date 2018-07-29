@@ -4,7 +4,6 @@ $(document).ready(function(){
     var motivation = document.getElementById("motivation");
     var blog = document.getElementById("blog");
 
-
     name_desktop.addEventListener("click", function(){
         if (name_desktop.innerHTML == "Jiaqi Gao"){
             name_desktop.innerHTML = "高家琪";
@@ -34,6 +33,13 @@ $(document).ready(function(){
             blog.innerHTML = "Blog >"
         }
     })
+    
+    var yena = document.getElementById("yena");
+    yena.addEventListener("click", function(){
+        yena.style.color = "lightblue";
+        yena.innerHTML = "tofu";
+    }
+
 
 });
 
