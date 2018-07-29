@@ -60,6 +60,8 @@ body {
       display: inline-block; }
     body .post #yena:hover {
       text-decoration: line-through; }
+    body .post .todo {
+      margin-left: 11vw; }
   body #date {
     text-align: center;
     padding-bottom: 1em;
