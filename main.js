@@ -37,7 +37,8 @@ $(document).ready(function(){
     var yena = document.getElementById("yena");
     yena.addEventListener("click", function() {
         yena.style.color = "lightblue";
-        yena.innerHTML = "Hi tofu!";
+        yena.style.textDecoration = "none";
+        yena.innerHTML = "tofu <3";
     })
 
 

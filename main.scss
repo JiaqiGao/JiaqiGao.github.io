@@ -6,10 +6,7 @@ body {
   .col-md-9 {
     margin-top: 2em;
   }
-  
-  p {
-    display: block;
-  }
+
   #construction {
     text-align: center;
     font-size: 1em;
@@ -99,6 +96,15 @@ body {
     margin-left: 2em;
     margin-right: 4em;
     font-size: 1.2em;
+
+    #yena {
+      display: inline-block;
+    }
+
+    #yena:hover{
+      text-decoration: line-through;
+    }
+
   }
 
   #date {

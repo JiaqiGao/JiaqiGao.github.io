@@ -2,8 +2,6 @@ body {
   font-family: "Courier"; }
   body .col-md-9 {
     margin-top: 2em; }
-  body p {
-    display: block; }
   body #construction {
     text-align: center;
     font-size: 1em;
@@ -58,6 +56,10 @@ body {
     margin-left: 2em;
     margin-right: 4em;
     font-size: 1.2em; }
+    body .post #yena {
+      display: inline-block; }
+    body .post #yena:hover {
+      text-decoration: line-through; }
   body #date {
     text-align: center;
     padding-bottom: 1em;
