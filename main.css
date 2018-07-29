@@ -2,6 +2,8 @@ body {
   font-family: "Courier"; }
   body .col-md-9 {
     margin-top: 2em; }
+  body p {
+    display: block; }
   body #construction {
     text-align: center;
     font-size: 1em;
