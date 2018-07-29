@@ -37,8 +37,8 @@ $(document).ready(function(){
     var yena = document.getElementById("yena");
     yena.addEventListener("click", function(){
         yena.style.color = "lightblue";
-        yena.innerHTML = "tofu";
-    }
+        yena.innerHTML = "Hi tofu!";
+    )}
 
 
 });
