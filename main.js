@@ -21,7 +21,7 @@ $(document).ready(function(){
     })
 
     blog.addEventListener("click", function(){
-        if (blog.innerHTML == "Blog &gt;"){
+        if (blog.innerHTML == "Summer 2018 Blog &gt;"){
             document.getElementById('bio').style.display = 'none';
             document.getElementById('blog').style.textAlign = 'left';
             document.getElementById('first').style.display = 'block';
