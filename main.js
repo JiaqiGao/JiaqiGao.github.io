@@ -30,7 +30,7 @@ $(document).ready(function(){
             document.getElementById('bio').style.display = 'block';
             document.getElementById('blog').style.textAlign = 'right';
             document.getElementById('first').style.display = 'none';
-            blog.innerHTML = "Blog >"
+            blog.innerHTML = "Summer 2018 Blog >"
         }
     })
     
