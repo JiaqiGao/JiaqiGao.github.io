@@ -33,14 +33,6 @@ $(document).ready(function(){
             blog.innerHTML = "Summer 2018 Blog >"
         }
     })
-   /* 
-    var yena = document.getElementById("yena");
-    yena.addEventListener("click", function() {
-        yena.style.color = "lightblue";
-        yena.style.textDecoration = "none";
-        yena.innerHTML = "tofu <3";
-    })
-*/
 
 });
 
@@ -63,9 +55,8 @@ function time() {
     date.innerHTML += month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
     date.innerHTML += h + ":" + m + ":" + s;
     if ((month == "12") && (d.getDate() == "16"))
-        date.innerHTML = "my birthday!";
-        /*data.innerHTML = "my " + (int)d.getFullYear() - 1999 + " years of surviving on this planet with you!";
-         */
+        data.innerHTML = "Today marks my " + (int)d.getFullYear() - 1999 + " year(s) of surviving in this world with you! Good job to the both of us for making it so far!";
+        
         
         var t = setTimeout(time, 500);
 }
