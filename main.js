@@ -33,14 +33,14 @@ $(document).ready(function(){
             blog.innerHTML = "Summer 2018 Blog >"
         }
     })
-    
+   /* 
     var yena = document.getElementById("yena");
     yena.addEventListener("click", function() {
         yena.style.color = "lightblue";
         yena.style.textDecoration = "none";
         yena.innerHTML = "tofu <3";
     })
-
+*/
 
 });
 
