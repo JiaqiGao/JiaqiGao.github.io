@@ -62,6 +62,8 @@ function time() {
           date.innerHTML += "my dudes <br>" 
     date.innerHTML += month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
     date.innerHTML += h + ":" + m + ":" + s;
+    if ((month == "12") && (d.getDate() == "16"))
+        data.innerHTML = "Today marks my " + (int)d.getFullYear() - 1999 + " years of surviving on this planet with you!";
     var t = setTimeout(time, 500);
 }
 
