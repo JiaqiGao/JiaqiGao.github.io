@@ -63,8 +63,11 @@ function time() {
     date.innerHTML += month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
     date.innerHTML += h + ":" + m + ":" + s;
     if ((month == "12") && (d.getDate() == "16"))
-        data.innerHTML = "Today marks my " + (int)d.getFullYear() - 1999 + " years of surviving on this planet with you!";
-    var t = setTimeout(time, 500);
+        date.innerHTML = "my birthday!";
+        /*data.innerHTML = "my " + (int)d.getFullYear() - 1999 + " years of surviving on this planet with you!";
+         */
+        
+        var t = setTimeout(time, 500);
 }
 
 function checkTime(i) {
