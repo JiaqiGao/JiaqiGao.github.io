@@ -54,8 +54,9 @@ function time() {
         date.innerHTML += "my dudes <br>"; 
     date.innerHTML += month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
     date.innerHTML += h + ":" + m + ":" + s;
-    if ((month == "12") && (d.getDate() == "16"))
-        date.innerHTML = "Today marks my " + (int)d.getFullYear() - 1999 + " year(s) of surviving in this world with you! Good job to the both of us for making it so far!";
+    if ((month == "12") && (d.getDate() == "16")){
+        date.innerHTML = "Today marks my " + (d.getFullYear() - 1999).toString() + " year(s) of surviving in this world!";
+    }
        
     var t = setTimeout(time, 500);
 }
