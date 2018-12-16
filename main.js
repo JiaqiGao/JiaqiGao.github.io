@@ -51,14 +51,13 @@ function time() {
     var date = document.getElementById("date");
     date.innerHTML = "It is " + weekdays[wk] + " "
     if (weekdays[wk] == "Wednesday")
-          date.innerHTML += "my dudes <br>" 
+        date.innerHTML += "my dudes <br>"; 
     date.innerHTML += month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
     date.innerHTML += h + ":" + m + ":" + s;
     if ((month == "12") && (d.getDate() == "16"))
-        data.innerHTML = "Today marks my " + (int)d.getFullYear() - 1999 + " year(s) of surviving in this world with you! Good job to the both of us for making it so far!";
-        
-        
-        var t = setTimeout(time, 500);
+        date.innerHTML = "Today marks my " + (int)d.getFullYear() - 1999 + " year(s) of surviving in this world with you! Good job to the both of us for making it so far!";
+       
+    var t = setTimeout(time, 500);
 }
 
 function checkTime(i) {
