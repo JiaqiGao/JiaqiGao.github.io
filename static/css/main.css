@@ -20,6 +20,14 @@ body {
       margin-left: auto;
       margin-right: auto;
       display: block; }
+  body #second {
+    display: none; }
+    body #second p, body #second h3 {
+      min-width: 50vw;
+      max-width: 65vw;
+      margin-left: auto;
+      margin-right: auto;
+      display: block; }
   body .social-media {
     margin: 2em;
     display: none; }

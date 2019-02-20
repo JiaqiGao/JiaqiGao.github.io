@@ -35,6 +35,18 @@ body {
     }
   }
 
+  #second {
+    display: none;
+
+    p, h3 {
+      min-width: 50vw;
+      max-width: 65vw;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+  }
+
   .social-media {
     margin: 2em;
     display: none;
