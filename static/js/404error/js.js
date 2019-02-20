@@ -6,8 +6,7 @@ DAT.Globe = function() {
   var camera, scene, renderer;
   var mesh, point;
 
-  var x = -0.2;
-  var y = -0.2;
+  var y = 0.2;
 
   function init() {
       camera = new THREE.PerspectiveCamera( 100, window.innerWidth / window.innerHeight, 0.01, 10 );
@@ -56,16 +55,16 @@ DAT.Globe = function() {
 
   function positioning(event) {
       if(event.clientX > window.innerWidth/2 && x < 0)
-              x += 0.1
+              y += 0.05;
       if(event.clientX < window.innerWidth/2 && x > 0)
-              x += -0.1
+              y += -0.05;
   }
 
   function animate(e) {
-      requestAnimationFrame( animate )
-      document.addEventListener("click", positioning)
-      mesh.rotation.x += 0.03 * x
-      renderer.render( scene, camera )
+      requestAnimationFrame( animate );
+      document.addEventListener("click", positioning);
+      mesh.rotation.y += y;
+      renderer.render( scene, camera );
   }
 
   init();
