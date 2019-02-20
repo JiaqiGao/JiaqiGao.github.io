@@ -6,10 +6,10 @@ body {
     text-align: center;
     font-size: 1em;
     margin: 4em; }
-  body #blog {
+  body .blog {
     text-align: right;
     margin-right: 8vw; }
-  body #blog:hover {
+  body .blog:hover {
     color: indianred;
     text-decoration: underline; }
   body #first {

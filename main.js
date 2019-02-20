@@ -3,6 +3,8 @@ $(document).ready(function(){
     var name_mobile = document.getElementById("name_mobile");
     var motivation = document.getElementById("motivation");
     var blog = document.getElementById("blog");
+    var winter2018 = document.getElementById("winter2018");
+    var second = document.getElementById("second");
 
     name_desktop.addEventListener("click", function(){
         if (name_desktop.innerHTML == "Jiaqi Gao"){
@@ -25,12 +27,35 @@ $(document).ready(function(){
             document.getElementById('bio').style.display = 'none';
             document.getElementById('blog').style.textAlign = 'left';
             document.getElementById('first').style.display = 'block';
-            blog.innerHTML = "< Back"
-        }else{
+            blog.innerHTML = "< Back";
+            second.style.display = 'none';
+            winter2018.style.display = 'none';
+        }else {
             document.getElementById('bio').style.display = 'block';
             document.getElementById('blog').style.textAlign = 'right';
             document.getElementById('first').style.display = 'none';
-            blog.innerHTML = "Summer 2018 Blog >"
+            blog.innerHTML = "Summer 2018 Blog >";
+            winter2018.style.display = 'block';
+            winter2018.innerHTML = "What I learned about backpacking alone in the Northeast >";
+        }
+    })
+
+    winter2018.addEventListener("click", function(){
+        if (winter2018.innerHTML == "What I learned about backpacking alone in the Northeast &gt;") {
+            document.getElementById('bio').style.display = 'none';
+            document.getElementById('winter2018').style.textAlign = 'left';
+            document.getElementById('second').style.display = 'block';
+            document.getElementById('first').style.display = 'none';
+            blog.style.display = 'none';
+            winter2018.innerHTML = "< Back";
+        }else {
+            document.getElementById('bio').style.display = 'block';
+            document.getElementById('winter2018').style.textAlign = 'right';
+            document.getElementById('second').style.display = 'none';
+            document.getElementById('first').style.display = 'none';
+            blog.style.display = 'block';
+            blog.innerHTML = "Summer 2018 Blog >";
+            winter2018.innerHTML = "What I learned about backpacking alone in the Northeast >";
         }
     })
 
