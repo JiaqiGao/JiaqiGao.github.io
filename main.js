@@ -115,7 +115,7 @@ function time() {
         date.innerHTML = weekdays[wk] + " "
 
         if (weekdays[wk] == "Wednesday")
-            date.innerHTML += "my dudes <br>";
+            date.innerHTML = "It's "+  date.innerHTML +"my dudes <br>";
         date.innerHTML += month + "/" + d.getDate() + "/" + d.getFullYear() + "  ";
     }else{
         date.innerHTML = "星期" + weekdays_chin[wk] + " "
