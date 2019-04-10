@@ -2,67 +2,36 @@ $(document).ready(function(){
     var name_desktop = document.getElementById("name_desktop");
     var name_mobile = document.getElementById("name_mobile");
     var motivation = document.getElementById("motivation");
-    var blog = document.getElementById("blog");
-    var winter2018 = document.getElementById("winter2018");
-    var second = document.getElementById("second");
+    var blog = document.getElementsByClassName("blog");
 
-    // name_desktop.addEventListener("click", function(){
-    //     if (name_desktop.innerHTML == "Jiaqi Gao"){
-    //         name_desktop.innerHTML = "高家琪";
-    //     }else{
-    //         name_desktop.innerHTML = "Jiaqi Gao";
-    //     }
-    // });
-    //
-    // name_mobile.addEventListener("click", function(){
-    //     if (name_mobile.innerHTML == "Jiaqi Gao"){
-    //         name_mobile.innerHTML = "高家琪";
-    //     }else{
-    //         name_mobile.innerHTML = "Jiaqi Gao";
-    //     }
-    // });
+    for (var j=0; j<blog.length; j+=1){
+        blog[j].addEventListener("click", function(){
+            for (var i=0; i<blog.length; i+=1) {
+                if (blog[i].innerHTML == "blog" || blog[i].innerHTML == "博客") {
+                    document.getElementById('home').style.display = 'none';
+                    document.getElementById('first').style.display = 'block';
+                    if (blog[i].innerHTML != "blog") {
+                        blog[i].innerHTML = "回";
+                    } else {
+                        blog[i].innerHTML = "return";
+                    }
+                } else {
+                    document.getElementById('home').style.display = 'block';
+                    document.getElementById('first').style.display = 'none';
+                    if (blog[i].innerHTML != "return") {
+                        blog[i].innerHTML = "博客";
+                    } else {
+                        blog[i].innerHTML = "blog";
+                    }
+                }
+            }
+        });
+    }
 
-    // blog.addEventListener("click", function(){
-    //     if (blog.innerHTML == "Summer 2018 Blog &gt;"){
-    //         document.getElementById('bio').style.display = 'none';
-    //         document.getElementById('blog').style.textAlign = 'left';
-    //         document.getElementById('first').style.display = 'block';
-    //         blog.innerHTML = "< Back";
-    //         second.style.display = 'none';
-    //         winter2018.style.display = 'none';
-    //     }else {
-    //         document.getElementById('bio').style.display = 'block';
-    //         document.getElementById('blog').style.textAlign = 'right';
-    //         document.getElementById('first').style.display = 'none';
-    //         blog.innerHTML = "Summer 2018 Blog >";
-    //         winter2018.style.display = 'block';
-    //         winter2018.innerHTML = "What I learned about backpacking alone in the Northeast >";
-    //     }
-    // });
 
-    // winter2018.addEventListener("click", function(){
-    //     if (winter2018.innerHTML == "What I learned about backpacking alone in the Northeast &gt;") {
-    //         document.getElementById('bio').style.display = 'none';
-    //         document.getElementById('winter2018').style.textAlign = 'left';
-    //         document.getElementById('second').style.display = 'block';
-    //         document.getElementById('first').style.display = 'none';
-    //         blog.style.display = 'none';
-    //         winter2018.innerHTML = "< Back";
-    //     }else {
-    //         document.getElementById('bio').style.display = 'block';
-    //         document.getElementById('winter2018').style.textAlign = 'right';
-    //         document.getElementById('second').style.display = 'none';
-    //         document.getElementById('first').style.display = 'none';
-    //         blog.style.display = 'block';
-    //         blog.innerHTML = "Summer 2018 Blog >";
-    //         winter2018.innerHTML = "What I learned about backpacking alone in the Northeast >";
-    //     }
-    // });
 
 
     document.getElementById("translate").addEventListener("click", function(){
-        console.log(!(document.getElementById("option1").checked));
-
         translate();
     });
 

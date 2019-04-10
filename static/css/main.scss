@@ -31,8 +31,9 @@ body {
     }
 
     .social-media {
-      background-color: antiquewhite;
-      padding: 1em;
+      //background-color: antiquewhite;
+      //padding: 1em;
+      border: white dashed 10px;
 
       a {
         color: #79BFCB;
@@ -69,23 +70,62 @@ body {
   }
 
   .content {
-    padding: 1em;
+    padding: 2em;
     margin-top: 2em;
     text-align: center;
     align-content: center;
 
-    .heading {
-      text-align: center;
-      color: #67b168;
-      padding: 0.3em;
-      background-color: aliceblue;
-      z-index: -1;
-    }
 
     #bio {
-      background-color: azure;
+      //background-color: azure;
       padding: 1em;
       text-align: left;
+    }
+
+    #projects {
+      margin-top: 1vw;
+
+      .title {
+        font-size: x-large;
+        text-align: center;
+        color: #67b168;
+        padding: 0.5em;
+        background-color: azure;
+        z-index: -1;
+      }
+
+      .project {
+        margin-top: 4vw;
+        margin-left: 4vw;
+        margin-right: 4vw;
+        text-align: center;
+        background-color: aliceblue;
+        height: 230px;
+        border-radius: 30px;
+        opacity: 0.5;
+      }
+
+      .image {
+        width: 90%;
+        height: 90%;
+        margin: 0;
+        background-size: cover;
+      }
+
+      #cdph {
+        .image{
+          background-image: url("../images/screenshots.png");
+        }
+      }
+
+      .project:hover {
+        //margin-left: 8vw;
+        //margin-right: 0.5vw;
+        box-shadow: 5px 5px 5px grey;
+
+        opacity: 1;
+
+      }
 
     }
 
@@ -97,7 +137,6 @@ body {
 
     .blog {
       text-align: right;
-      margin-right: 8vw;
     }
 
     .blog:hover {
@@ -107,20 +146,9 @@ body {
 
     #first {
       display: none;
+      text-align: left;
 
       img, p, video, h3 {
-        min-width: 50vw;
-        max-width: 65vw;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-      }
-    }
-
-    #second {
-      display: none;
-
-      p, h3 {
         min-width: 50vw;
         max-width: 65vw;
         margin-left: auto;
@@ -163,28 +191,12 @@ body {
       #name_mobile:hover {
         color: indianred;
       }
-
     }
 
     .post {
       font-family: Georgia;
       margin: 2em;
-      margin-left: 2em;
-      margin-right: 4em;
       font-size: 1.2em;
-
-      #yena {
-        display: inline-block;
-      }
-
-      #yena:hover {
-        text-decoration: line-through;
-      }
-
-      .todo {
-        margin-left: 11vw;
-      }
-
     }
 
     #date {
