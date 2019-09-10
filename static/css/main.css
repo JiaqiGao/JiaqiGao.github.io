@@ -38,6 +38,7 @@ body {
   body .content {
     padding: 2em;
     margin-top: 2em;
+    margin-left: 1.5em;
     text-align: center;
     align-content: center; }
     body .content #bio {

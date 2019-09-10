@@ -3,7 +3,6 @@ $(document).ready(function(){
     var name_mobile = document.getElementById("name_mobile");
     var motivation = document.getElementById("motivation");
     var blog = document.getElementsByClassName("blog");
-
     for (var j=0; j<blog.length; j+=1){
         blog[j].addEventListener("click", function(){
             for (var i=0; i<blog.length; i+=1) {
