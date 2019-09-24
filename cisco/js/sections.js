@@ -1,12 +1,12 @@
-function run(){
+function run() {
   fetch("data/GHC-Problem3-Data.json")
-  .then(response => response.json())
-  .then(json => 
-    everything(json)
+    .then(response => response.json())
+    .then(json =>
+      everything(json)
     );
 }
 
-function everything(data){
+function everything(data) {
   //////////
 
   display(data);
@@ -72,11 +72,11 @@ var scrollVis = function (data) {
 
       // set up visualizations function
 
-      setupVis();
+      setupVis(data);
       activateFunctions.push(
         showTitle(),
         showFillerTitle(data)
-        )
+      )
     })
   }
 
@@ -84,96 +84,102 @@ var scrollVis = function (data) {
    * setupVis - creates initial elements for all
    * sections of the visualization.
    */
-  var setupVis = function () {
-
-    // count openvis title
+  var setupVis = function (data) {
     g.append('text')
-      .attr('class', 'title openvis-title')
-      .attr('x', width / 2)
+      .attr('class', 'intro')
+      .attr('x', width - 100)
+      .attr('y', height / 5)
+      .text('58 Modules');
+
+    var startTime = data["Frame"]["Begin"]
+    var endTime = data["Frame"]["End"]
+    g.append('text')
+      .attr('class', 'intro')
+      .attr('x', width - 100)
+      .attr('y', height / 4)
+      .text(parseTime(endTime) - parseTime(startTime) + " minutes");
+
+    g.append('text')
+      .attr('class', 'intro')
+      .attr('x', width - 100)
       .attr('y', height / 3)
-      .text('2013');
-    }
+      .text('2039 Flows');
+
+  }
+
 
   function showTitle() {
-
-    ////////////////////////////////
-
-    g.selectAll('.openvis-title')
+    g.selectAll('.intro')
       .transition()
       .duration(600)
       .attr('opacity', 1.0);
-  }
 
-  function showFillerTitle(data) {
     var macsFrom = macsData(data)
 
-
     var circles = g.selectAll("circle")
-    .data(macsFrom)
-    .enter()
-    .append("circle");
-  
-  var div = d3.select('#vis').append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
+      .data(macsFrom)
+      .enter()
+      .append("circle");
 
-  var xstart = 200;
-  var ystart = 20;
-  var ycount = -1;
-  var xcount = -1;
+    var div = d3.select('#vis').append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
 
-  var radius = 10;
-  var skip = 5;
+    var xstart = 200;
+    var ystart = 20;
+    var ycount = -1;
+    var xcount = -1;
 
-  var circleAttributes = circles
-    .attr('opacity', 0.6)
-    .attr("cx", function (d) { 
-      xcount += 1;
-      if (xcount > skip){
-        xstart = 200;
-        xcount = 0;
-      }
-      xstart += radius * 3;
-      return xstart; 
-    })
-    .attr("cy", function (d) { 
-      ycount += 1;
-      if (ycount > skip){
-        ystart += radius * 3;
-        ycount = 0;
-      }
-      return ystart; 
-    })
-    .attr("r", function (d) { return radius; })
-    .style("fill", function(d) { 
-      return "red"; 
-    })
-    .on('mouseover', function (d, i) {  
-      d3.select(this)
-        .attr('opacity', 1)
-        .attr("r", radius + 1);
+    var radius = 10;
+    var skip = 5;
 
-      div.transition()
-               .duration(50)
-               .style("opacity", 1);
+    var circleAttributes = circles
+      .attr('opacity', 0.6)
+      .attr("cx", function (d) {
+        xcount += 1;
+        if (xcount > skip) {
+          xstart = 200;
+          xcount = 0;
+        }
+        xstart += radius * 3;
+        return xstart;
+      })
+      .attr("cy", function (d) {
+        ycount += 1;
+        if (ycount > skip) {
+          ystart += radius * 3;
+          ycount = 0;
+        }
+        return ystart;
+      })
+      .attr("r", function (d) { return radius; })
+      .style("fill", function (d) {
+        return "red";
+      })
+      .on('mouseover', function (d, i) {
+        d3.select(this)
+          .attr('opacity', 1)
+          .attr("r", radius + 1);
 
-      console.log(d3.event.mouseX);
-      
-      div.html("mac: "+d)
-        .style("left", (event.clientX - 275) + "px")
-        .style("top", (event.clientY - 75) + "px");
-      
-      
-    })
-    .on('mouseout', function (d, i) {
-      d3.select(this)
-        .attr('opacity', 0.6)
-        .attr("r", radius);
+        div.transition()
+          .duration(50)
+          .style("opacity", 1);
 
-      div.transition()
-               .duration('50')
-               .style("opacity", 0);
-    });
+        div.html("MAC: " + d)
+          .style("left", (event.clientX - 275 - 200) + "px")
+          .style("top", (event.clientY - 70) + "px");
+
+
+      })
+      .on('mouseout', function (d, i) {
+        d3.select(this)
+          .attr('opacity', 0.6)
+          .attr("r", radius);
+
+        div.transition()
+          .duration('50')
+          .style("opacity", 0);
+      });
 
     g.selectAll('.openvis-title')
       .transition()
@@ -191,6 +197,10 @@ var scrollVis = function (data) {
       .attr('opacity', 1.0);
   }
 
+  function showFillerTitle(data) {
+
+  }
+
 
   /**
    * activate -
@@ -202,9 +212,9 @@ var scrollVis = function (data) {
     var sign = (activeIndex - lastIndex) < 0 ? -1 : 1;
     var scrolledSections = d3.range(lastIndex + sign, activeIndex + sign, sign);
     scrolledSections.forEach(function (i) {
-      if (i < activateFunctions.length){
+      if (i < activateFunctions.length) {
         activateFunctions[i];
-      } 
+      }
     });
     lastIndex = activeIndex;
   };
@@ -216,11 +226,11 @@ var scrollVis = function (data) {
    * @param progress
    */
   chart.update = function (index, progress) {
-    if (index < updateFunctions.length-1){
+    if (index < updateFunctions.length - 1) {
       updateFunctions[index](progress);
     }
   };
- 
+
   return chart;
 
 }
@@ -255,17 +265,17 @@ function display(data) {
   });
 }
 
-function macsData(data){
+function macsData(data) {
   var macsFrom = []
 
   var flows = data["FlowTable"]
-  for (var i=0; i<flows.length; i++){
+  for (var i = 0; i < flows.length; i++) {
     var maca = flows[i]["Flow"]["component-A"]["mac"];
     var macb = flows[i]["Flow"]["component-B"]["mac"];
-    if (!macsFrom.includes(maca)){
+    if (!macsFrom.includes(maca)) {
       macsFrom.push(maca);
     }
-    if (!macsFrom.includes(macb)){
+    if (!macsFrom.includes(macb)) {
       macsFrom.push(macb);
     }
   }
@@ -274,7 +284,7 @@ function macsData(data){
 
 function complete(data) {
   console.log(data);
-  
+
 }
 
 

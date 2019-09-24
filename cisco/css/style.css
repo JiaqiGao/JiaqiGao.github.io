@@ -73,6 +73,12 @@
 
 }
 
+.intro {
+  font-family: Arial,Helvetica,"san-serif";
+  font-size: 20px;
+  text-anchor: middle;
+}
+
 div.tooltip {
   position: absolute;
   text-align: center;
