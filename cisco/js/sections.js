@@ -1,38 +1,9 @@
-function run() {
-  fetch("data/GHC-Problem3-Data.json")
-    .then(response => response.json())
-    .then(json =>
-      everything(json)
-    );
-}
-
-function everything(data) {
-  //////////
-
-  display(data);
-  complete(data);
-}
-
-run();
-
-/**
- * scrollVis - encapsulates
- * all the code for the visualization
- * using reusable charts pattern:
- * http://bost.ocks.org/mike/chart/
- */
-var scrollVis = function (data) {
+function scrollVis(data) {
   // constants to define the size
   // and margins of the vis area.
   var width = 600;
-  var height = 520;
-  var margin = { top: 0, left: 20, bottom: 40, right: 10 };
-
-  var lastIndex = -1;
-  var activeIndex = 0;
-  var activateFunctions = [];
-  var updateFunctions = [];
-
+  var height = 600;
+  var margin = { top: 20, left: 10, bottom: 20, right: 10 };
 
   // main svg used for visualization
   var svg = null;
@@ -40,24 +11,6 @@ var scrollVis = function (data) {
   // d3 selection that will be used
   // for displaying visualizations
   var g = null;
-
-  // We will set the domain when the
-  // data is processed.
-  // @v4 using new scale names
-  var xBarScale = d3.scaleLinear()
-    .range([0, width]);
-
-  // The bar chart display is horizontal
-  // so we can use an ordinal scale
-  // to get width and y locations.
-  // @v4 using new scale type
-  var yBarScale = d3.scaleBand()
-    .paddingInner(0.08)
-    .domain([0, 1, 2])
-    .range([0, height - 50], 0.1, 0.1);
-
-  // Color is determined just by the index of the bars
-  var barColors = { 0: '#008080', 1: '#399785', 2: '#5AAF8C' };
 
   var chart = function (selection, data) {
     selection.each(function (data) {
@@ -73,10 +26,10 @@ var scrollVis = function (data) {
       // set up visualizations function
 
       setupVis(data);
-      activateFunctions.push(
-        showTitle(),
-        showFillerTitle(data)
-      )
+      mData = macsData(data);
+      lData = linesData(data, mData);
+      showTitle(mData, lData);
+
     })
   }
 
@@ -87,7 +40,7 @@ var scrollVis = function (data) {
   var setupVis = function (data) {
     g.append('text')
       .attr('class', 'intro')
-      .attr('x', width - 100)
+      .attr('x', width - 200)
       .attr('y', height / 5)
       .text('58 Modules');
 
@@ -95,26 +48,23 @@ var scrollVis = function (data) {
     var endTime = data["Frame"]["End"]
     g.append('text')
       .attr('class', 'intro')
-      .attr('x', width - 100)
+      .attr('x', width - 200)
       .attr('y', height / 4)
       .text(parseTime(endTime) - parseTime(startTime) + " minutes");
 
     g.append('text')
       .attr('class', 'intro')
-      .attr('x', width - 100)
+      .attr('x', width - 200)
       .attr('y', height / 3)
       .text('2039 Flows');
 
   }
 
-
-  function showTitle() {
+  function showTitle(macsFrom, lData) {
     g.selectAll('.intro')
       .transition()
       .duration(600)
       .attr('opacity', 1.0);
-
-    var macsFrom = macsData(data)
 
     var circles = g.selectAll("circle")
       .data(macsFrom)
@@ -125,32 +75,18 @@ var scrollVis = function (data) {
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-    var xstart = 200;
-    var ystart = 20;
-    var ycount = -1;
-    var xcount = -1;
-
     var radius = 10;
-    var skip = 5;
 
     var circleAttributes = circles
-      .attr('opacity', 0.6)
+      .attr('opacity', 0.5)
+      .attr('id', function (d) {
+        return d['id'];
+      })
       .attr("cx", function (d) {
-        xcount += 1;
-        if (xcount > skip) {
-          xstart = 200;
-          xcount = 0;
-        }
-        xstart += radius * 3;
-        return xstart;
+        return d['x'];
       })
       .attr("cy", function (d) {
-        ycount += 1;
-        if (ycount > skip) {
-          ystart += radius * 3;
-          ycount = 0;
-        }
-        return ystart;
+        return d['y'];
       })
       .attr("r", function (d) { return radius; })
       .style("fill", function (d) {
@@ -165,15 +101,15 @@ var scrollVis = function (data) {
           .duration(50)
           .style("opacity", 1);
 
-        div.html("MAC: " + d)
-          .style("left", (event.clientX - 275 - 200) + "px")
-          .style("top", (event.clientY - 70) + "px");
+        div.html("MAC: " + d['id'])
+          .style("left", (event.clientX - 70) + "px")
+          .style("top", (event.clientY - 30) + "px");
 
 
       })
       .on('mouseout', function (d, i) {
         d3.select(this)
-          .attr('opacity', 0.6)
+          .attr('opacity', 0.5)
           .attr("r", radius);
 
         div.transition()
@@ -195,100 +131,129 @@ var scrollVis = function (data) {
       .transition()
       .duration(600)
       .attr('opacity', 1.0);
-  }
 
-  function showFillerTitle(data) {
-
-  }
-
-
-  /**
-   * activate -
-   *
-   * @param index - index of the activated section
-   */
-  chart.activate = function (index) {
-    activeIndex = index;
-    var sign = (activeIndex - lastIndex) < 0 ? -1 : 1;
-    var scrolledSections = d3.range(lastIndex + sign, activeIndex + sign, sign);
-    scrolledSections.forEach(function (i) {
-      if (i < activateFunctions.length) {
-        activateFunctions[i];
+      for (var i=0; i<lData.length; i++){
+        g.append("line")
+        .attr("x1", lData[i]['macA']['x'])
+        .attr("x2", lData[i]['macB']['x'])
+        .attr("y1", lData[i]['macA']['y'])
+        .attr("y2", lData[i]['macB']['y'])
+        .attr("stroke", "blue")
+        .attr("opacity", 0.2)
+        .attr("stroke-width", 1)
+        .attr("fill", "none");
       }
-    });
-    lastIndex = activeIndex;
-  };
-
-  /**
-   * update
-   *
-   * @param index
-   * @param progress
-   */
-  chart.update = function (index, progress) {
-    if (index < updateFunctions.length - 1) {
-      updateFunctions[index](progress);
-    }
-  };
+  }
 
   return chart;
 
 }
 
-function display(data) {
-  // create a new plot and
-  // display it
-  var plot = scrollVis(data);
-  d3.select('#vis')
-    .datum(data)
-    .call(plot);
+//////////////////////////////////// DATA PROCESSING //////////////////////////////////////////////////
 
-  // setup scroll functionality
-  var scroll = scroller()
-    .container(d3.select('#graphic'));
+function linesData(data, macs) {
+  var macDic = {}
+  for (var m = 0; m < macs.length; m++) {
+    macDic[macs[m]['id']] = { 'x': macs[m]['x'], 'y': macs[m]['y'] }
+  }
 
-  // pass in .step selection as the steps
-  scroll(d3.selectAll('.step'));
-
-  // setup event handling
-  scroll.on('active', function (index) {
-    // highlight current step text
-    d3.selectAll('.step')
-      .style('opacity', function (d, i) { return i === index ? 1 : 0.1; });
-
-    // activate current section
-    plot.activate(index);
-  });
-
-  scroll.on('progress', function (index, progress) {
-    plot.update(index, progress);
-  });
+  var final = []
+  var flows = data["FlowTable"]
+  for (var i = 0; i < flows.length; i++) {
+    var maca = flows[i]["Flow"]["component-A"]["mac"];
+    var macb = flows[i]["Flow"]["component-B"]["mac"];
+    final.push({
+      'macA': {
+        'x': macDic[maca]['x'],
+        'y': macDic[maca]['y']
+      },
+      'macB': {
+        'x': macDic[macb]['x'],
+        'y': macDic[macb]['y']
+      }
+    })
+  }
+  return final;
 }
 
 function macsData(data) {
+  var final = []
   var macsFrom = []
+  var radius = 10;
+
+  var xstart = 100 - (3 * radius);
+  var ystart = 20;
+  var ycount = -1;
+  var xcount = -1;
+  var skip = 5;
 
   var flows = data["FlowTable"]
   for (var i = 0; i < flows.length; i++) {
     var maca = flows[i]["Flow"]["component-A"]["mac"];
     var macb = flows[i]["Flow"]["component-B"]["mac"];
+
     if (!macsFrom.includes(maca)) {
+      xstart += radius * 3;
+      xcount += 1;
+      if (xcount > skip) {
+        xstart = 100;
+        xcount = 0;
+      }
+      ycount += 1;
+      if (ycount > skip) {
+        ystart += radius * 3;
+        ycount = 0;
+      }
       macsFrom.push(maca);
+      final.push({ 'id': maca, 'x': xstart, 'y': ystart })
     }
+
     if (!macsFrom.includes(macb)) {
+      xstart += radius * 3;
+      xcount += 1;
+      if (xcount > skip) {
+        xstart = 100;
+        xcount = 0;
+      }
+      ycount += 1;
+      if (ycount > skip) {
+        ystart += radius * 3;
+        ycount = 0;
+      }
       macsFrom.push(macb);
+      final.push({ 'id': macb, 'x': xstart, 'y': ystart })
     }
   }
-  return macsFrom
+  return final
 }
 
-function complete(data) {
-  console.log(data);
 
-}
-
+/////////////////////////////////////////////// EXTRA /////////////////////////////////////////////////////////
 
 function parseTime(s) {
   var c = s.split(':');
   return parseInt(c[0]) * 60 + parseInt(c[1]);
+}
+
+///////////////////////////////////////////// ADMIN /////////////////////////////////////////////////////////////
+
+function run() {
+  fetch("data/GHC-Problem3-Data.json")
+    .then(response => response.json())
+    .then(json =>
+      everything(json)
+    );
+}
+
+function everything(data) {
+  display(data);
+}
+
+run();
+
+function display(data) {
+  var plot = scrollVis(data);
+  d3.select('#vis')
+    .datum(data)
+    .call(plot);
 }
