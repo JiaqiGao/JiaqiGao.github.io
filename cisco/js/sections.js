@@ -40,7 +40,7 @@ function scrollVis(data) {
   var setupVis = function (data) {
     g.append('text')
       .attr('class', 'intro')
-      .attr('x', width - 200)
+      .attr('x', width - 100)
       .attr('y', height / 5)
       .text('58 Modules');
 
@@ -48,13 +48,13 @@ function scrollVis(data) {
     var endTime = data["Frame"]["End"]
     g.append('text')
       .attr('class', 'intro')
-      .attr('x', width - 200)
+      .attr('x', width - 100)
       .attr('y', height / 4)
       .text(parseTime(endTime) - parseTime(startTime) + " minutes");
 
     g.append('text')
       .attr('class', 'intro')
-      .attr('x', width - 200)
+      .attr('x', width - 100)
       .attr('y', height / 3)
       .text('2039 Flows');
 
@@ -75,7 +75,7 @@ function scrollVis(data) {
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-    var radius = 10;
+    var radius = 15;
 
     var circleAttributes = circles
       .attr('opacity', 0.5)
@@ -103,7 +103,7 @@ function scrollVis(data) {
 
         div.html("MAC: " + d['id'])
           .style("left", (event.clientX - 70) + "px")
-          .style("top", (event.clientY - 30) + "px");
+          .style("top", (event.clientY + 10) + "px");
 
 
       })
@@ -179,7 +179,7 @@ function linesData(data, macs) {
 function macsData(data) {
   var final = []
   var macsFrom = []
-  var radius = 10;
+  var radius = 15;
 
   var xstart = 100 - (3 * radius);
   var ystart = 20;
