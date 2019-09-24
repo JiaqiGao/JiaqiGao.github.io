@@ -118,8 +118,8 @@ function scrollVis(data) {
         div.html("MAC: " + d['id'] + 
                 "<br>" + "Sent: " + macCount[ d['id']]['send'] +
                 "<br>" + "Receive: " + macCount[ d['id']]['rec'])
-          .style("left", (event.clientX - 70) + "px")
-          .style("top", (event.clientY + 60) + "px");
+          .style("left", (d['x'] + 330) + "px")
+          .style("top", (d['y'] + 60) + "px");
 
 
       })
