@@ -27,8 +27,10 @@ function scrollVis(data) {
 
       setupVis(data);
       mData = macsData(data);
-      lData = linesData(data, mData);
-      showTitle(mData, lData);
+      ld = linesData(data, mData);
+      macCount = ld[1]
+      lData = ld[0];
+      showTitle(mData, lData, macCount);
 
     })
   }
@@ -56,15 +58,27 @@ function scrollVis(data) {
       .attr('class', 'intro')
       .attr('x', width - 100)
       .attr('y', height / 3)
-      .text('2039 Flows');
+      .text('2039 Total Flows');
 
   }
 
-  function showTitle(macsFrom, lData) {
+  function showTitle(macsFrom, lData, macCount) {
     g.selectAll('.intro')
       .transition()
       .duration(600)
       .attr('opacity', 1.0);
+
+    for (var i=0; i<lData.length; i++){
+      g.append("line")
+      .attr("x1", lData[i]['macA']['x'])
+      .attr("x2", lData[i]['macB']['x'])
+      .attr("y1", lData[i]['macA']['y'])
+      .attr("y2", lData[i]['macB']['y'])
+      .attr("stroke", "blue")
+      .attr("opacity", 0.2)
+      .attr("stroke-width", 1)
+      .attr("fill", "none");
+    }
 
     var circles = g.selectAll("circle")
       .data(macsFrom)
@@ -101,9 +115,11 @@ function scrollVis(data) {
           .duration(50)
           .style("opacity", 1);
 
-        div.html("MAC: " + d['id'])
+        div.html("MAC: " + d['id'] + 
+                "<br>" + "Sent: " + macCount[ d['id']]['send'] +
+                "<br>" + "Receive: " + macCount[ d['id']]['rec'])
           .style("left", (event.clientX - 70) + "px")
-          .style("top", (event.clientY + 10) + "px");
+          .style("top", (event.clientY + 60) + "px");
 
 
       })
@@ -132,17 +148,6 @@ function scrollVis(data) {
       .duration(600)
       .attr('opacity', 1.0);
 
-      for (var i=0; i<lData.length; i++){
-        g.append("line")
-        .attr("x1", lData[i]['macA']['x'])
-        .attr("x2", lData[i]['macB']['x'])
-        .attr("y1", lData[i]['macA']['y'])
-        .attr("y2", lData[i]['macB']['y'])
-        .attr("stroke", "blue")
-        .attr("opacity", 0.2)
-        .attr("stroke-width", 1)
-        .attr("fill", "none");
-      }
   }
 
   return chart;
@@ -153,8 +158,10 @@ function scrollVis(data) {
 
 function linesData(data, macs) {
   var macDic = {}
+  var macCount = {}
   for (var m = 0; m < macs.length; m++) {
-    macDic[macs[m]['id']] = { 'x': macs[m]['x'], 'y': macs[m]['y'] }
+    macDic[macs[m]['id']] = { 'x': macs[m]['x'], 'y': macs[m]['y'] };
+    macCount[macs[m]['id']] = {'send': 0, 'rec': 0};
   }
 
   var final = []
@@ -162,6 +169,8 @@ function linesData(data, macs) {
   for (var i = 0; i < flows.length; i++) {
     var maca = flows[i]["Flow"]["component-A"]["mac"];
     var macb = flows[i]["Flow"]["component-B"]["mac"];
+    macCount[maca]['send'] += 1;
+    macCount[macb]['rec'] += 1;
     final.push({
       'macA': {
         'x': macDic[maca]['x'],
@@ -173,7 +182,7 @@ function linesData(data, macs) {
       }
     })
   }
-  return final;
+  return [final, macCount];
 }
 
 function macsData(data) {
@@ -182,7 +191,7 @@ function macsData(data) {
   var radius = 15;
 
   var xstart = 100 - (3 * radius);
-  var ystart = 20;
+  var ystart = 15;
   var ycount = -1;
   var xcount = -1;
   var skip = 5;
