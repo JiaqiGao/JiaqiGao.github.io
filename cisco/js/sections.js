@@ -108,12 +108,13 @@ function scrollVis3(data) {
           return "blue";
         })
         .on('click', function(d, i) {
+          var packetCount = macCount[ d['id']]['packetsS'];
           g.selectAll("circle")
             .transition()
             .duration(100)
-            .attr('stroke-width', 0)
-            .attr('stroke', 'blue');
+            .attr('stroke-width', 0);
 
+          if (packetCount != 0){
           for (var rec=0; rec<macCount[ d['id']]['receivers'].length; rec++){
             var recer = (macCount[ d['id']]['receivers'][rec]).replace(/[\[\]:]+/g,'');
             d3.select('#name'+recer)
@@ -122,6 +123,8 @@ function scrollVis3(data) {
               .attr('stroke-width', 5)
               .attr('stroke', 'cyan');
           }
+          }
+          
 
         })
         .on('mouseover', function (d, i) {
@@ -257,7 +260,7 @@ function scrollVis2(data) {
     var circleAttributes = circles
       .attr('opacity', 0.5)
       .attr('id', function (d) {
-        return "#names"+d['id'].replace(/[\[\]:]+/g,'');
+        return "names"+d['id'].replace(/[\[\]:]+/g,'');
       })
       .attr("cx", function (d) {
         return d['x'];
@@ -281,16 +284,17 @@ function scrollVis2(data) {
       })
       .on('click', function(d, i) {
         g.selectAll("circle")
-          .transition()
-          .duration(50)
           .attr('stroke-width', 0);
-
+        var packetCount = macCount[ d['id']]['packetsR'];
+        if (packetCount != 0){
         for (var rec=0; rec<macCount[ d['id']]['senders'].length; rec++){
           var recer = (macCount[ d['id']]['senders'][rec]).replace(/[\[\]:]+/g,'');
           d3.select('#names'+recer)
             .attr('stroke-width', 5)
-            .attr('stroke', 'cyan');
+            .attr('stroke', 'magenta');
         }
+        }
+        
 
       })
       .on('mouseover', function (d, i) {
