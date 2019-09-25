@@ -121,7 +121,7 @@ function scrollVis3(data) {
               .transition()
               .duration(100)
               .attr('stroke-width', 5)
-              .attr('stroke', 'cyan');
+              .attr('stroke', 'yellow');
           }
           }
           
@@ -291,7 +291,7 @@ function scrollVis2(data) {
           var recer = (macCount[ d['id']]['senders'][rec]).replace(/[\[\]:]+/g,'');
           d3.select('#names'+recer)
             .attr('stroke-width', 5)
-            .attr('stroke', 'magenta');
+            .attr('stroke', 'yellow');
         }
         }
         
