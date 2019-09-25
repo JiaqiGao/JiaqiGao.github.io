@@ -1,8 +1,312 @@
+function scrollVis3(data) {
+  // constants to define the size
+    // and margins of the vis area.
+    var width = 800;
+    var height = 500;
+    var margin = { top: 20, left: 10, bottom: 20, right: 10 };
+  
+    // main svg used for visualization
+    var svg = null;
+  
+    // d3 selection that will be used
+    // for displaying visualizations
+    var g = null;
+  
+    var chart = function (selection, data) {
+      selection.each(function (data) {
+        // create svg and give it a width and height
+        svg = d3.select(this).append('svg')
+        svg.attr('width', width + margin.left + margin.right);
+        svg.attr('height', height + margin.top + margin.bottom);
+  
+        svg.append('g');
+        g = svg.select('g')
+          .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+  
+        // set up visualizations function
+  
+        setupVis(data);
+        mData = macsData(data);
+        ld = linesData(data, mData);
+        macCount = ld[1]
+        lData = ld[0];
+        showTitle(mData, lData, macCount);
+  
+      })
+    }
+  
+    /**
+     * setupVis - creates initial elements for all
+     * sections of the visualization.
+     */
+    var setupVis = function (data) {
+      g.append('text')
+        .attr('class', 'intro2')
+        .attr('x', width - 330)
+        .attr('y', height / 5)
+        .text('MAC 00:11:43:6c:f8:89');
+  
+      var startTime = data["Frame"]["Begin"]
+      var endTime = data["Frame"]["End"]
+      g.append('text')
+        .attr('class', 'intro2')
+        .attr('x', width - 330)
+        .attr('y', height / 4)
+        .text('sent the most packets');
+  
+      g.append('text')
+        .attr('class', 'intro2')
+        .attr('x', width - 330)
+        .attr('y', height / 3)
+        .text('Exceeding 300,000 packets');
+  
+    }
+  
+    function showTitle(macsFrom, lData, macCount) {
+      g.selectAll('.intro')
+        .transition()
+        .duration(600)
+        .attr('opacity', 1.0);
+  
+      var circles = g.selectAll("circle")
+        .data(macsFrom)
+        .enter()
+        .append("circle");
+  
+      var div = d3.select('#vis3').append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+  
+      var radiusScale = d3.scaleLinear()
+        .domain([0, 200000])
+        .range([8, 28.5]);
+  
+      var circleAttributes = circles
+        .attr('opacity', 0.5)
+        .attr('id', function (d) {
+          return d['id'];
+        })
+        .attr("cx", function (d) {
+          return d['x'];
+        })
+        .attr("cy", function (d) {
+          return d['y'];
+        })
+        .attr("r", function (d) { 
+          var packetCount = macCount[ d['id']]['packetsS'];
+          return radiusScale(packetCount);
+        })
+        .style("fill", function (d) {
+          var packetCount = macCount[ d['id']]['packetsS'];
+          if (packetCount == 0){
+            return "black"
+          }
+          return "blue";
+        })
+        .on('mouseover', function (d, i) {
+          var packetCount = macCount[ d['id']]['packetsS'];
+          d3.select(this)
+            .attr('opacity', 1);
+  
+          div.transition()
+            .duration(50)
+            .style("opacity", 1);
+  
+          div.html("MAC: " + d['id'] + 
+                  "<br>" + "Packets Sent: " + macCount[ d['id']]['packetsS'] +
+                  "<br>" + "L2-bytes: " + macCount[ d['id']]['l2-bytesR']+
+                  "<br>" + "L7-bytes: " + macCount[ d['id']]['l7-bytesR'])
+            .style("left", (d['x'] +  310) + "px")
+            .style("top", (d['y'] + 1449 - radiusScale(packetCount)) + "px");
+  
+  
+        })
+        .on('mouseout', function (d, i) {
+          d3.select(this)
+            .attr('opacity', 0.5);
+  
+          div.transition()
+            .duration('50')
+            .style("opacity", 0);
+        });
+  
+      g.selectAll('.openvis-title')
+        .transition()
+        .duration(0)
+        .attr('opacity', 0);
+  
+      g.selectAll('.square')
+        .transition()
+        .duration(0)
+        .attr('opacity', 0);
+  
+      g.selectAll('.count-title')
+        .transition()
+        .duration(600)
+        .attr('opacity', 1.0);
+  
+    }
+  
+    return chart;
+  }
+
+function scrollVis2(data) {
+// constants to define the size
+  // and margins of the vis area.
+  var width = 800;
+  var height = 500;
+  var margin = { top: 20, left: 10, bottom: 20, right: 10 };
+
+  // main svg used for visualization
+  var svg = null;
+
+  // d3 selection that will be used
+  // for displaying visualizations
+  var g = null;
+
+  var chart = function (selection, data) {
+    selection.each(function (data) {
+      // create svg and give it a width and height
+      svg = d3.select(this).append('svg')
+      svg.attr('width', width + margin.left + margin.right);
+      svg.attr('height', height + margin.top + margin.bottom);
+
+      svg.append('g');
+      g = svg.select('g')
+        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+      // set up visualizations function
+
+      setupVis(data);
+      mData = macsData(data);
+      ld = linesData(data, mData);
+      macCount = ld[1]
+      lData = ld[0];
+      showTitle(mData, lData, macCount);
+
+    })
+  }
+
+  /**
+   * setupVis - creates initial elements for all
+   * sections of the visualization.
+   */
+  var setupVis = function (data) {
+    g.append('text')
+      .attr('class', 'intro2')
+      .attr('x', width - 330)
+      .attr('y', height / 5)
+      .text('MAC 00:80:f4:01:3a:fa');
+
+    var startTime = data["Frame"]["Begin"]
+    var endTime = data["Frame"]["End"]
+    g.append('text')
+      .attr('class', 'intro2')
+      .attr('x', width - 330)
+      .attr('y', height / 4)
+      .text('received the most packets');
+
+    g.append('text')
+      .attr('class', 'intro2')
+      .attr('x', width - 330)
+      .attr('y', height / 3)
+      .text('Exceeding 100,000 packets');
+
+  }
+
+  function showTitle(macsFrom, lData, macCount) {
+    g.selectAll('.intro')
+      .transition()
+      .duration(600)
+      .attr('opacity', 1.0);
+
+    var circles = g.selectAll("circle")
+      .data(macsFrom)
+      .enter()
+      .append("circle");
+
+    var div = d3.select('#vis2').append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
+
+    var radiusScale = d3.scaleLinear()
+      .domain([0, 200000])
+      .range([8, 30]);
+
+    var circleAttributes = circles
+      .attr('opacity', 0.5)
+      .attr('id', function (d) {
+        return d['id'];
+      })
+      .attr("cx", function (d) {
+        return d['x'];
+      })
+      .attr("cy", function (d) {
+        return d['y'];
+      })
+      .attr("r", function (d) { 
+        var packetCount = macCount[ d['id']]['packetsR'];
+        return radiusScale(packetCount);
+      })
+      .style("fill", function (d) {
+        var packetCount = macCount[ d['id']]['packetsR'];
+        if (packetCount == 0){
+          return "black"
+        }
+        return "red";
+      })
+      .on('mouseover', function (d, i) {
+        var packetCount = macCount[ d['id']]['packetsR'];
+        d3.select(this)
+          .attr('opacity', 1);
+
+        div.transition()
+          .duration(50)
+          .style("opacity", 1);
+
+        div.html("MAC: " + d['id'] + 
+                "<br>" + "Packets Received: " + macCount[ d['id']]['packetsR'] +
+                "<br>" + "L2-bytes: " + macCount[ d['id']]['l2-bytes']+
+                "<br>" + "L7-bytes: " + macCount[ d['id']]['l7-bytes'])
+          .style("left", (d['x'] +  323) + "px")
+          .style("top", (d['y'] + 780 - radiusScale(packetCount)) + "px");
+
+
+      })
+      .on('mouseout', function (d, i) {
+        d3.select(this)
+          .attr('opacity', 0.5);
+
+        div.transition()
+          .duration('50')
+          .style("opacity", 0);
+      });
+
+    g.selectAll('.openvis-title')
+      .transition()
+      .duration(0)
+      .attr('opacity', 0);
+
+    g.selectAll('.square')
+      .transition()
+      .duration(0)
+      .attr('opacity', 0);
+
+    g.selectAll('.count-title')
+      .transition()
+      .duration(600)
+      .attr('opacity', 1.0);
+
+  }
+
+  return chart;
+}
+
 function scrollVis(data) {
   // constants to define the size
   // and margins of the vis area.
-  var width = 600;
-  var height = 600;
+  var width = 700;
+  var height = 500;
   var margin = { top: 20, left: 10, bottom: 20, right: 10 };
 
   // main svg used for visualization
@@ -42,7 +346,7 @@ function scrollVis(data) {
   var setupVis = function (data) {
     g.append('text')
       .attr('class', 'intro')
-      .attr('x', width - 100)
+      .attr('x', width - 230)
       .attr('y', height / 5)
       .text('58 Modules');
 
@@ -50,13 +354,13 @@ function scrollVis(data) {
     var endTime = data["Frame"]["End"]
     g.append('text')
       .attr('class', 'intro')
-      .attr('x', width - 100)
+      .attr('x', width - 230)
       .attr('y', height / 4)
-      .text(parseTime(endTime) - parseTime(startTime) + " minutes");
+      .text(parseTime(endTime) - parseTime(startTime) + " minutes of data");
 
     g.append('text')
       .attr('class', 'intro')
-      .attr('x', width - 100)
+      .attr('x', width - 230)
       .attr('y', height / 3)
       .text('2039 Total Flows');
 
@@ -119,7 +423,7 @@ function scrollVis(data) {
                 "<br>" + "Sent: " + macCount[ d['id']]['send'] +
                 "<br>" + "Receive: " + macCount[ d['id']]['rec'])
           .style("left", (d['x'] + 327) + "px")
-          .style("top", (d['y'] + 60) + "px");
+          .style("top", (d['y'] + 90) + "px");
 
 
       })
@@ -156,12 +460,21 @@ function scrollVis(data) {
 
 //////////////////////////////////// DATA PROCESSING //////////////////////////////////////////////////
 
+function packetData(data) {
+  var flows = data["FlowTable"]
+  for (var i=0; i<flows.length; i++){
+    console.log(flows[i]["FlowInfo"]["stats"])
+  }
+}
+
 function linesData(data, macs) {
+  console.log(data);
   var macDic = {}
   var macCount = {}
   for (var m = 0; m < macs.length; m++) {
     macDic[macs[m]['id']] = { 'x': macs[m]['x'], 'y': macs[m]['y'] };
-    macCount[macs[m]['id']] = {'send': 0, 'rec': 0};
+    macCount[macs[m]['id']] = {'send': 0, 'rec': 0, 'l2-bytes': 0, 'l7-bytes': 0, 'packetsR': 0, 
+    'packetsS': 0, 'l2-bytesR': 0, 'l7-bytesR': 0, };
   }
 
   var final = []
@@ -169,8 +482,32 @@ function linesData(data, macs) {
   for (var i = 0; i < flows.length; i++) {
     var maca = flows[i]["Flow"]["component-A"]["mac"];
     var macb = flows[i]["Flow"]["component-B"]["mac"];
-    macCount[maca]['send'] += 1;
-    macCount[macb]['rec'] += 1;
+    var direction = flows[i]["FlowInfo"]["stats"][0]["Direction"] == "A→B"
+    if (direction){
+      macCount[maca]['send'] += 1;
+      macCount[macb]['rec'] += 1;
+      if (flows[i]["FlowInfo"]["stats"][0]["l7-bytes"]){
+        macCount[macb]['l2-bytes'] += flows[i]["FlowInfo"]["stats"][0]["l2-bytes"];
+        macCount[macb]['l7-bytes'] += flows[i]["FlowInfo"]["stats"][0]["l7-bytes"];
+        macCount[maca]['l2-bytesR'] += flows[i]["FlowInfo"]["stats"][0]["l2-bytes"];
+        macCount[maca]['l7-bytesR'] += flows[i]["FlowInfo"]["stats"][0]["l7-bytes"];
+        macCount[macb]['packetsR'] += flows[i]["FlowInfo"]["stats"][0]["packets"];
+        macCount[maca]['packetsS'] += flows[i]["FlowInfo"]["stats"][0]["packets"];
+      }
+      
+    }else{
+      macCount[macb]['send'] += 1;
+      macCount[maca]['rec'] += 1;
+      if (flows[i]["FlowInfo"]["stats"][0]["l7-bytes"]){
+        macCount[maca]['l2-bytes'] += flows[i]["FlowInfo"]["stats"][0]["l2-bytes"];
+        macCount[maca]['l7-bytes'] += flows[i]["FlowInfo"]["stats"][0]["l7-bytes"];
+        macCount[macb]['l2-bytesR'] += flows[i]["FlowInfo"]["stats"][0]["l2-bytes"];
+        macCount[macb]['l7-bytesR'] += flows[i]["FlowInfo"]["stats"][0]["l7-bytes"];
+        macCount[maca]['packetsR'] += flows[i]["FlowInfo"]["stats"][0]["packets"];
+        macCount[macb]['packetsS'] += flows[i]["FlowInfo"]["stats"][0]["packets"];
+      }
+    }
+    
     final.push({
       'macA': {
         'x': macDic[maca]['x'],
@@ -190,11 +527,11 @@ function macsData(data) {
   var macsFrom = []
   var radius = 15;
 
-  var xstart = 100 - (3 * radius);
+  var xstart = 20 - (4 * radius);
   var ystart = 15;
   var ycount = -1;
   var xcount = -1;
-  var skip = 5;
+  var skip = 6;
 
   var flows = data["FlowTable"]
   for (var i = 0; i < flows.length; i++) {
@@ -202,15 +539,15 @@ function macsData(data) {
     var macb = flows[i]["Flow"]["component-B"]["mac"];
 
     if (!macsFrom.includes(maca)) {
-      xstart += radius * 3;
+      xstart += radius * 4;
       xcount += 1;
       if (xcount > skip) {
-        xstart = 100;
+        xstart = 20;
         xcount = 0;
       }
       ycount += 1;
       if (ycount > skip) {
-        ystart += radius * 3;
+        ystart += radius * 4;
         ycount = 0;
       }
       macsFrom.push(maca);
@@ -218,15 +555,15 @@ function macsData(data) {
     }
 
     if (!macsFrom.includes(macb)) {
-      xstart += radius * 3;
+      xstart += radius * 4;
       xcount += 1;
       if (xcount > skip) {
-        xstart = 100;
+        xstart = 20;
         xcount = 0;
       }
       ycount += 1;
       if (ycount > skip) {
-        ystart += radius * 3;
+        ystart += radius * 4;
         ycount = 0;
       }
       macsFrom.push(macb);
@@ -265,4 +602,14 @@ function display(data) {
   d3.select('#vis')
     .datum(data)
     .call(plot);
+
+  var plot2 = scrollVis2(data);
+  d3.select('#vis2')
+    .datum(data)
+    .call(plot2);
+
+  var plot3 = scrollVis3(data);
+  d3.select('#vis3')
+    .datum(data)
+    .call(plot3);
 }

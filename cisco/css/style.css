@@ -6,7 +6,6 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  top: 0px;
   z-index: 90;
   text-align: center;
 }
@@ -16,6 +15,15 @@
   font-size: 16px;
   line-height: 23px;
   color: #767678;
+}
+
+.intro2 {
+  width: 300px;
+  height: 600px;
+  font-family: Arial,Helvetica,"san-serif";
+  font-size: 18px;
+  text-anchor: right;
+  
 }
 
 #sections .title {
@@ -31,7 +39,25 @@
   display: inline-block;
   z-index: 100;
   margin-left: 0;
-  height: 600px; 
+  height: 500px; 
+  width: 600px;
+  /* background-color: #ddd; */
+}
+
+#vis2 {
+  display: inline-block;
+  z-index: 100;
+  margin-left: 0;
+  height: 500px; 
+  width: 600px;
+  /* background-color: #ddd; */
+}
+
+#vis3 {
+  display: inline-block;
+  z-index: 100;
+  margin-left: 0;
+  height: 500px; 
   width: 600px;
   /* background-color: #ddd; */
 }
@@ -67,7 +93,7 @@
 .intro {
   font-family: Arial,Helvetica,"san-serif";
   font-size: 20px;
-  text-anchor: middle;
+  text-anchor: right;
 }
 
 div.tooltip {
