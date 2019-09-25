@@ -141,7 +141,7 @@ function scrollVis3(data) {
                   "<br>" + "L2-bytes: " + macCount[ d['id']]['l2-bytesR']+
                   "<br>" + "L7-bytes: " + macCount[ d['id']]['l7-bytesR'])
             .style("left", (d['x'] +  318) + "px")
-            .style("top", (d['y'] + 1449 - radiusScale(packetCount)) + "px");
+            .style("top", (d['y'] + 1489 - radiusScale(packetCount)) + "px");
   
   
         })
@@ -310,8 +310,8 @@ function scrollVis2(data) {
                 "<br>" + "Packets Received: " + macCount[ d['id']]['packetsR'] +
                 "<br>" + "L2-bytes: " + macCount[ d['id']]['l2-bytes']+
                 "<br>" + "L7-bytes: " + macCount[ d['id']]['l7-bytes'])
-          .style("left", (d['x'] +  313) + "px")
-          .style("top", (d['y'] + 780 - radiusScale(packetCount)) + "px");
+          .style("left", (d['x'] +  318) + "px")
+          .style("top", (d['y'] + 794 - radiusScale(packetCount)) + "px");
 
 
       })
