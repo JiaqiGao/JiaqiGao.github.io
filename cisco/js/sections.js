@@ -85,7 +85,7 @@ function scrollVis3(data) {
       var circleAttributes = circles
         .attr('opacity', 0.5)
         .attr('id', function (d) {
-          return d['id'];
+          return 'name'+(d['id']).replace(/[\[\]:]+/g,'');
         })
         .attr("cx", function (d) {
           return d['x'];
@@ -107,6 +107,23 @@ function scrollVis3(data) {
           }
           return "blue";
         })
+        .on('click', function(d, i) {
+          g.selectAll("circle")
+            .transition()
+            .duration(100)
+            .attr('stroke-width', 0)
+            .attr('stroke', 'blue');
+
+          for (var rec=0; rec<macCount[ d['id']]['receivers'].length; rec++){
+            var recer = (macCount[ d['id']]['receivers'][rec]).replace(/[\[\]:]+/g,'');
+            d3.select('#name'+recer)
+              .transition()
+              .duration(100)
+              .attr('stroke-width', 5)
+              .attr('stroke', 'cyan');
+          }
+
+        })
         .on('mouseover', function (d, i) {
           var packetCount = macCount[ d['id']]['packetsS'];
           d3.select(this)
@@ -120,7 +137,7 @@ function scrollVis3(data) {
                   "<br>" + "Packets Sent: " + macCount[ d['id']]['packetsS'] +
                   "<br>" + "L2-bytes: " + macCount[ d['id']]['l2-bytesR']+
                   "<br>" + "L7-bytes: " + macCount[ d['id']]['l7-bytesR'])
-            .style("left", (d['x'] +  310) + "px")
+            .style("left", (d['x'] +  318) + "px")
             .style("top", (d['y'] + 1449 - radiusScale(packetCount)) + "px");
   
   
@@ -240,7 +257,7 @@ function scrollVis2(data) {
     var circleAttributes = circles
       .attr('opacity', 0.5)
       .attr('id', function (d) {
-        return d['id'];
+        return "#names"+d['id'].replace(/[\[\]:]+/g,'');
       })
       .attr("cx", function (d) {
         return d['x'];
@@ -262,6 +279,20 @@ function scrollVis2(data) {
         }
         return "red";
       })
+      .on('click', function(d, i) {
+        g.selectAll("circle")
+          .transition()
+          .duration(50)
+          .attr('stroke-width', 0);
+
+        for (var rec=0; rec<macCount[ d['id']]['senders'].length; rec++){
+          var recer = (macCount[ d['id']]['senders'][rec]).replace(/[\[\]:]+/g,'');
+          d3.select('#names'+recer)
+            .attr('stroke-width', 5)
+            .attr('stroke', 'cyan');
+        }
+
+      })
       .on('mouseover', function (d, i) {
         var packetCount = macCount[ d['id']]['packetsR'];
         d3.select(this)
@@ -275,7 +306,7 @@ function scrollVis2(data) {
                 "<br>" + "Packets Received: " + macCount[ d['id']]['packetsR'] +
                 "<br>" + "L2-bytes: " + macCount[ d['id']]['l2-bytes']+
                 "<br>" + "L7-bytes: " + macCount[ d['id']]['l7-bytes'])
-          .style("left", (d['x'] +  310) + "px")
+          .style("left", (d['x'] +  313) + "px")
           .style("top", (d['y'] + 780 - radiusScale(packetCount)) + "px");
 
 
@@ -429,7 +460,7 @@ function scrollVis(data) {
         div.html("MAC: " + d['id'] + 
                 "<br>" + "Sent: " + macCount[ d['id']]['send'] +
                 "<br>" + "Receive: " + macCount[ d['id']]['rec'])
-          .style("left", (d['x'] + 310) + "px")
+          .style("left", (d['x'] + 317) + "px")
           .style("top", (d['y'] + 100) + "px");
 
 
@@ -467,21 +498,14 @@ function scrollVis(data) {
 
 //////////////////////////////////// DATA PROCESSING //////////////////////////////////////////////////
 
-function packetData(data) {
-  var flows = data["FlowTable"]
-  for (var i=0; i<flows.length; i++){
-    console.log(flows[i]["FlowInfo"]["stats"])
-  }
-}
-
 function linesData(data, macs) {
-  console.log(data);
   var macDic = {}
   var macCount = {}
   for (var m = 0; m < macs.length; m++) {
     macDic[macs[m]['id']] = { 'x': macs[m]['x'], 'y': macs[m]['y'] };
     macCount[macs[m]['id']] = {'send': 0, 'rec': 0, 'l2-bytes': 0, 'l7-bytes': 0, 'packetsR': 0, 
-    'packetsS': 0, 'l2-bytesR': 0, 'l7-bytesR': 0, };
+    'packetsS': 0, 'l2-bytesR': 0, 'l7-bytesR': 0, 
+    'senders': [], 'receivers': []};
   }
 
   var final = []
@@ -493,6 +517,12 @@ function linesData(data, macs) {
     if (direction){
       macCount[maca]['send'] += 1;
       macCount[macb]['rec'] += 1;
+      if (!macCount[maca]['receivers'].includes(macb)){
+        macCount[maca]['receivers'].push(macb);
+      }
+      if (!macCount[macb]['senders'].includes(maca)){
+        macCount[macb]['senders'].push(maca);
+      }
       if (flows[i]["FlowInfo"]["stats"][0]["l7-bytes"]){
         macCount[macb]['l2-bytes'] += flows[i]["FlowInfo"]["stats"][0]["l2-bytes"];
         macCount[macb]['l7-bytes'] += flows[i]["FlowInfo"]["stats"][0]["l7-bytes"];
@@ -505,6 +535,12 @@ function linesData(data, macs) {
     }else{
       macCount[macb]['send'] += 1;
       macCount[maca]['rec'] += 1;
+      if (!macCount[maca]['senders'].includes(macb)){
+        macCount[maca]['senders'].push(macb);
+      }
+      if (!macCount[macb]['receivers'].includes(maca)){
+        macCount[macb]['receivers'].push(maca);
+      }
       if (flows[i]["FlowInfo"]["stats"][0]["l7-bytes"]){
         macCount[maca]['l2-bytes'] += flows[i]["FlowInfo"]["stats"][0]["l2-bytes"];
         macCount[maca]['l7-bytes'] += flows[i]["FlowInfo"]["stats"][0]["l7-bytes"];
