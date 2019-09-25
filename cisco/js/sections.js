@@ -77,9 +77,10 @@ function scrollVis3(data) {
         .attr("class", "tooltip")
         .style("opacity", 0);
   
-      var radiusScale = d3.scaleLinear()
-        .domain([0, 200000])
-        .range([8, 28.5]);
+      
+      var radiusScale = d3.scaleLog()
+            .domain([1, 370000])
+            .range([8, 30]);
   
       var circleAttributes = circles
         .attr('opacity', 0.5)
@@ -94,6 +95,9 @@ function scrollVis3(data) {
         })
         .attr("r", function (d) { 
           var packetCount = macCount[ d['id']]['packetsS'];
+          if (packetCount == 0){
+            return 8;
+          }
           return radiusScale(packetCount);
         })
         .style("fill", function (d) {
@@ -210,7 +214,7 @@ function scrollVis2(data) {
       .attr('class', 'intro2')
       .attr('x', width - 330)
       .attr('y', height / 3)
-      .text('Exceeding 100,000 packets');
+      .text('Exceeding 300,000 packets');
 
   }
 
@@ -229,8 +233,8 @@ function scrollVis2(data) {
       .attr("class", "tooltip")
       .style("opacity", 0);
 
-    var radiusScale = d3.scaleLinear()
-      .domain([0, 200000])
+      var radiusScale = d3.scaleLog()
+      .domain([1, 370000])
       .range([8, 30]);
 
     var circleAttributes = circles
@@ -246,6 +250,9 @@ function scrollVis2(data) {
       })
       .attr("r", function (d) { 
         var packetCount = macCount[ d['id']]['packetsR'];
+        if (packetCount == 0){
+          return 8;
+        }
         return radiusScale(packetCount);
       })
       .style("fill", function (d) {
@@ -268,7 +275,7 @@ function scrollVis2(data) {
                 "<br>" + "Packets Received: " + macCount[ d['id']]['packetsR'] +
                 "<br>" + "L2-bytes: " + macCount[ d['id']]['l2-bytes']+
                 "<br>" + "L7-bytes: " + macCount[ d['id']]['l7-bytes'])
-          .style("left", (d['x'] +  323) + "px")
+          .style("left", (d['x'] +  310) + "px")
           .style("top", (d['y'] + 780 - radiusScale(packetCount)) + "px");
 
 
@@ -422,8 +429,8 @@ function scrollVis(data) {
         div.html("MAC: " + d['id'] + 
                 "<br>" + "Sent: " + macCount[ d['id']]['send'] +
                 "<br>" + "Receive: " + macCount[ d['id']]['rec'])
-          .style("left", (d['x'] + 327) + "px")
-          .style("top", (d['y'] + 90) + "px");
+          .style("left", (d['x'] + 310) + "px")
+          .style("top", (d['y'] + 100) + "px");
 
 
       })
