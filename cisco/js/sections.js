@@ -284,14 +284,18 @@ function scrollVis2(data) {
       })
       .on('click', function(d, i) {
         g.selectAll("circle")
-          .attr('stroke-width', 0);
+	      .transition()
+	      .duration(100)
+	     .attr('stroke-width', 0);
         var packetCount = macCount[ d['id']]['packetsR'];
         if (packetCount != 0){
         for (var rec=0; rec<macCount[ d['id']]['senders'].length; rec++){
           var recer = (macCount[ d['id']]['senders'][rec]).replace(/[\[\]:]+/g,'');
           d3.select('#names'+recer)
-            .attr('stroke-width', 5)
-            .attr('stroke', 'yellow');
+		.transition()
+		.duration(100)
+		.attr('stroke-width', 5)
+		.attr('stroke', 'yellow');
         }
         }
         

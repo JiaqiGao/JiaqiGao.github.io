@@ -1,130 +1,209 @@
 body {
-  font-family: "Courier"; }
-  body .chin {
-    display: none; }
-  body .col-md-9 {
-    margin-top: 2em; }
+  font-family: "Courier";
+}
+
+body .chin {
+  display: none;
+}
+
+body .col-md-9 {
+  margin-top: 2em;
+}
+
+body .contact {
+  margin: 2em;
+  display: none;
+  padding: 2em;
+}
+
+body .contact .row {
+  margin-bottom: 1em;
+}
+
+@media screen and (min-width: 991px) {
   body .contact {
-    margin: 2em;
+    position: fixed;
+    display: block;
+  }
+}
+
+body .contact .name_desktop {
+  background: transparent;
+}
+
+body .contact .social-media {
+  border: white dashed 10px;
+}
+
+body .contact .social-media a {
+  color: #79BFCB;
+}
+
+body .contact .social-media a:hover {
+  color: indianred;
+  background-color: transparent;
+}
+
+body .contact .summer-blogs {
+  margin-top: 2em;
+  background-color: antiquewhite;
+  padding: 1em;
+}
+
+@media screen and (min-width: 991px) {
+  body .contact .summer-blogs {
+    position: fixed;
+    display: block;
+  }
+}
+
+body #translate .button {
+  background-color: antiquewhite;
+}
+
+body #translate .active {
+  background-color: #79BFCB;
+}
+
+body .content {
+  padding: 1em;
+  margin-top: 2em;
+  text-align: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+body .content #bio {
+  padding: 1em;
+  text-align: left;
+}
+
+body .content #projects {
+  margin-top: 1vw;
+}
+
+body .content #projects .title {
+  font-size: x-large;
+  text-align: center;
+  color: #67b168;
+  padding: 0.5em;
+  background-color: azure;
+  z-index: -1;
+}
+
+body .content #projects .project {
+  margin-top: 4vw;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  text-align: center;
+  background-color: aliceblue;
+  height: 230px;
+  border-radius: 30px;
+  opacity: 0.5;
+}
+
+body .content #projects .image {
+  width: 90%;
+  height: 90%;
+  margin: 0;
+  background-size: cover;
+}
+
+body .content #projects #cdph .image {
+  background-image: url("../images/screenshots.png");
+}
+
+body .content #projects .project:hover {
+  -webkit-box-shadow: 5px 5px 5px grey;
+          box-shadow: 5px 5px 5px grey;
+  opacity: 1;
+}
+
+body .content #construction {
+  text-align: center;
+  font-size: 1em;
+  margin: 4em;
+}
+
+body .content .blog {
+  text-align: right;
+}
+
+body .content .blog:hover {
+  color: indianred;
+  text-decoration: underline;
+}
+
+body .content #first {
+  display: none;
+  text-align: left;
+}
+
+body .content #first img, body .content #first p, body .content #first video, body .content #first h3 {
+  min-width: 65vw;
+  max-width: 65vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+body .content .mobile-view {
+  text-align: center;
+}
+
+body .content .mobile-view .name_mobile {
+  text-align: center;
+}
+
+body .content .mobile-view ul {
+  list-style-type: none;
+  display: inline-block;
+}
+
+body .content .mobile-view a {
+  color: #79BFCB;
+}
+
+body .content .mobile-view .right {
+  text-align: left;
+}
+
+body .content .mobile-view li {
+  display: inline-block;
+  padding: 0.5em;
+  margin: 0.5em;
+  background-color: antiquewhite;
+}
+
+@media screen and (min-width: 991px) {
+  body .content .mobile-view {
     display: none;
-    padding: 2em; }
-    body .contact .row {
-      margin-bottom: 1em; }
-    @media screen and (min-width: 991px) {
-      body .contact {
-        position: fixed;
-        display: block; } }
-    body .contact .name_desktop {
-      background: transparent; }
-    body .contact .social-media {
-      border: white dashed 10px; }
-      body .contact .social-media a {
-        color: #79BFCB; }
-      body .contact .social-media a:hover {
-        color: indianred;
-        background-color: transparent; }
-    body .contact .summer-blogs {
-      margin-top: 2em;
-      background-color: antiquewhite;
-      padding: 1em; }
-      @media screen and (min-width: 991px) {
-        body .contact .summer-blogs {
-          position: fixed;
-          display: block; } }
-  body #translate .button {
-    background-color: antiquewhite; }
-  body #translate .active {
-    background-color: #79BFCB; }
-  body .content {
-    padding: 2em;
-    margin-top: 2em;
-    margin-left: 1.5em;
-    text-align: center;
-    align-content: center; }
-    body .content #bio {
-      padding: 1em;
-      text-align: left; }
-    body .content #projects {
-      margin-top: 1vw; }
-      body .content #projects .title {
-        font-size: x-large;
-        text-align: center;
-        color: #67b168;
-        padding: 0.5em;
-        background-color: azure;
-        z-index: -1; }
-      body .content #projects .project {
-        margin-top: 4vw;
-        margin-left: 4vw;
-        margin-right: 4vw;
-        text-align: center;
-        background-color: aliceblue;
-        height: 230px;
-        border-radius: 30px;
-        opacity: 0.5; }
-      body .content #projects .image {
-        width: 90%;
-        height: 90%;
-        margin: 0;
-        background-size: cover; }
-      body .content #projects #cdph .image {
-        background-image: url("../images/screenshots.png"); }
-      body .content #projects .project:hover {
-        box-shadow: 5px 5px 5px grey;
-        opacity: 1; }
-    body .content #construction {
-      text-align: center;
-      font-size: 1em;
-      margin: 4em; }
-    body .content .blog {
-      text-align: right; }
-    body .content .blog:hover {
-      color: indianred;
-      text-decoration: underline; }
-    body .content #first {
-      display: none;
-      text-align: left; }
-      body .content #first img, body .content #first p, body .content #first video, body .content #first h3 {
-        min-width: 50vw;
-        max-width: 65vw;
-        margin-left: auto;
-        margin-right: auto;
-        display: block; }
-    body .content .mobile-view {
-      text-align: center; }
-      body .content .mobile-view .name_mobile {
-        text-align: center; }
-      body .content .mobile-view ul {
-        list-style-type: none;
-        display: inline-block; }
-      body .content .mobile-view a {
-        color: #79BFCB; }
-      body .content .mobile-view .right {
-        text-align: left; }
-      body .content .mobile-view li {
-        display: inline-block;
-        padding: 0.5em;
-        margin: 0.5em;
-        background-color: antiquewhite; }
-      @media screen and (min-width: 991px) {
-        body .content .mobile-view {
-          display: none; } }
-      body .content .mobile-view #name_mobile:hover {
-        color: indianred; }
-    body .content .post {
-      font-family: Georgia;
-      margin: 2em;
-      font-size: 1.2em; }
-    body .content #date {
-      font-size: x-large;
-      text-align: center;
-      color: #67b168;
-      padding: 0.5em;
-      background-color: aliceblue;
-      z-index: -1; }
+  }
+}
+
+body .content .mobile-view #name_mobile:hover {
+  color: indianred;
+}
+
+body .content .post {
+  font-family: Georgia;
+  margin: 1em;
+  font-size: 1.2em;
+}
+
+body .content #date {
+  font-size: x-large;
+  text-align: center;
+  color: #67b168;
+  padding: 0.5em;
+  margin-left: 2em;
+  margin-right: 2em;
+  background-color: aliceblue;
+  z-index: -1;
+}
 
 #earthtop {
   color: black;
-  margin-top: 3%; }
-
+  margin-top: 3%;
+}
 /*# sourceMappingURL=main.css.map */

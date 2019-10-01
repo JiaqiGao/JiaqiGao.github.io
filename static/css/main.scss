@@ -70,9 +70,8 @@ body {
   }
 
   .content {
-    padding: 2em;
+    padding: 1em;
     margin-top: 2em;
-    margin-left: 1.5em;
     text-align: center;
     align-content: center;
 
@@ -150,7 +149,7 @@ body {
       text-align: left;
 
       img, p, video, h3 {
-        min-width: 50vw;
+        min-width: 65vw;
         max-width: 65vw;
         margin-left: auto;
         margin-right: auto;
@@ -196,7 +195,7 @@ body {
 
     .post {
       font-family: Georgia;
-      margin: 2em;
+      margin: 1em;
       font-size: 1.2em;
     }
 
@@ -205,6 +204,8 @@ body {
       text-align: center;
       color: #67b168;
       padding: 0.5em;
+      margin-left: 2em;
+      margin-right: 2em;
       background-color: aliceblue;
       z-index: -1;
     }
