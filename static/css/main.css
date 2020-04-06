@@ -79,7 +79,8 @@ body .content #bio {
 }
 
 body .content #projects {
-  margin-top: 1vw;
+    margin-top: 1vw;
+    text-decoration: underline;
 }
 
 
