@@ -82,6 +82,11 @@ body .content #projects {
   margin-top: 1vw;
 }
 
+
+#pronouce {
+    display: inline-block;
+}
+
 body .content #projects .title {
   font-size: x-large;
   text-align: center;

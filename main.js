@@ -106,3 +106,11 @@ function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
+
+var snd = new Audio("jiaqigao.wav");
+
+var proWeb = document.getElementById("pronouce");
+proWeb.addEventListener("click", function(){
+    snd.play();
+    snd.currentTime = 0;
+});
