@@ -7,6 +7,10 @@ body .chin {
   display: none;
 }
 
+body #home {
+  background-color: white;
+}
+
 @media screen and (min-width: 991px) {
   body {
     margin: 4em 0em 0em 4em;
