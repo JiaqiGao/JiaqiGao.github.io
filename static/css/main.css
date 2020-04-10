@@ -66,10 +66,6 @@ body .contact .summer-blogs {
   }
 }
 
-#catbike {
-  max-height: 20vh;
-}
-
 body #translate .button {
   background-color: antiquewhite;
 }
@@ -243,5 +239,9 @@ body .content #date {
 
 h2 {
   margin-left: 3vw;
+}
+
+#catbike {
+  max-height: 20vh;
 }
 /*# sourceMappingURL=main.css.map */
