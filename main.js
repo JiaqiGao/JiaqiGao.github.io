@@ -1,3 +1,13 @@
+var vid = document.getElementById("video");
+
+function getVolume() { 
+  alert(vid.volume);
+} 
+  
+function setHalfVolume() { 
+  vid.volume = 0;
+}
+
 $(document).ready(function(){
     var name_desktop = document.getElementById("name_desktop");
     var name_mobile = document.getElementById("name_mobile");
