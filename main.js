@@ -127,4 +127,3 @@ proWeb.addEventListener("click", function(){
     snd.play();
     snd.currentTime = 0;
 });
-B
