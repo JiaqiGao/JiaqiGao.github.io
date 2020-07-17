@@ -1,5 +1,5 @@
 var vid = document.getElementById("video");
-
+vid.volume = 0.2;
 function getVolume() { 
     alert(vid.volume);
 } 
@@ -7,7 +7,6 @@ function getVolume() {
 function setHalfVolume() { 
     vid.volume = 0;
     alert(vid.volume);
-    vid.volume = 0.5;
 }
 
 $(document).ready(function(){
