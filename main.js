@@ -114,13 +114,3 @@ proWeb.addEventListener("click", function(){
     snd.play();
     snd.currentTime = 0;
 });
-function getVolume() { 
-  alert(proWeb.volume);
-} 
-  
-function setHalfVolume() { 
-  proWeb.volume = 0.2;
-} 
-getVolume();
-setHalfVolume();
-getVolume();
