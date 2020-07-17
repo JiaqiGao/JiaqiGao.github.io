@@ -1,11 +1,14 @@
 var vid = document.getElementById("video");
 
 function getVolume() { 
-  alert(vid.volume);
+    vid.volume = 1;
+    alert(vid.volume);
+    
 } 
   
 function setHalfVolume() { 
-  vid.volume = 0;
+    vid.volume = 0;
+    alert(vid.volume);
 }
 
 $(document).ready(function(){
@@ -124,3 +127,4 @@ proWeb.addEventListener("click", function(){
     snd.play();
     snd.currentTime = 0;
 });
+B
