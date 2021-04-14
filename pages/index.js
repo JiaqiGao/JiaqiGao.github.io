@@ -156,7 +156,7 @@ class Main extends Component {
   
           <p className={styles.description}>
             This is a campaign donation portal for ✨Kirby✨, your preferred, beloved💕 candidate running in a local election!
-            <br/>You truly want to support Kirby's campaign, but you have an approximate donation budget of $30-50.
+            <br/>You truly want to support Kirby's campaign, but you have an approximate donation budget of $40.
           </p>
 
           <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/SSU_Kirby_artwork.png/220px-SSU_Kirby_artwork.png"/>
