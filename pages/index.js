@@ -175,8 +175,9 @@ class Main extends Component {
           <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/SSU_Kirby_artwork.png/220px-SSU_Kirby_artwork.png"/>
             
           <p className={styles.description}>
-            Click the button below when you're ready. 
-            <br/>You will be asked to confirm your donation, then directed to fill out a quick survery.
+            You will be asked to confirm your donation, then directed to fill out a quick survey.
+            <br/>Click the button below when you're ready. 
+            <br/>Disclaimer: This donation portal is totally fake and your money is safe in your wallet (safe from this website at least).
           </p>
   
           { this.state.start ? 
