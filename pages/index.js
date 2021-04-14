@@ -248,7 +248,7 @@ class Main extends Component {
               <Donation title={"Super Kirby Fan donation"}
                         description={"Demonstrate yourself as Kirby's TOP grassroots supporter! This is your last chance to get your status of Super Kirby Fan!"}
                         msg1={"Donate a one-time additional $12"}  
-                        msg2={"If you check this box, we will HAVE TO tell Kirby you're a DEFECTOR & sided with Meta Knight."}   
+                        msg2={"If you check this box, we will HAVE TO tell Kirby you're a DEFECTOR & side with Meta Knight."}   
                         onChange={this.handleChange} 
                         qId="eq4" 
                         checked={this.state.eq4}
