@@ -62,7 +62,8 @@ class Main extends Component {
       cq3: false,
       cq4: false,
       cq5: false,
-      totalDonations: 0
+      totalDonations: 0,
+      queryString: "#"
     }
 
     this.handleStart = this.handleStart.bind(this);
@@ -95,11 +96,23 @@ class Main extends Component {
       total += 16;
     }
 
+    // Create Qualtrics Query String
+    var link = "https://uchicago.co1.qualtrics.com/jfe/form/SV_dgV556kBNVvZVmC?";
+    link+="Experiment="
+    if (this.state.controlStatus){
+      link+="control"
+    }else{
+      link+="experiment";
+    }
+    link+="&TimeSpent="+((Date.now()-this.state.startTime)/1000).toString();
+    link+="&TotalDonations="+(total).toString();
+
     this.setState({
       endTime: Date.now(),
       disabledButton: false,
       donationText: "Thank you!",
-      totalDonations: total
+      totalDonations: total,
+      queryString: link
     })
   }
 
@@ -268,9 +281,11 @@ class Main extends Component {
 
             <br/>
 
-              <Button disabled={this.state.disabledButton} color='orange' floated='right'>
-                Take Survey!
-              </Button>
+              <a href={this.state.queryString} target="_blank">
+                <Button disabled={this.state.disabledButton} color='orange' floated='right'>
+                  Take Survey!
+                </Button>
+              </a>
             
               <Button disabled={!this.state.disabledButton} inverted color='green' onClick={this.handleEnd} floated='right'>
                   {this.state.donationText}
