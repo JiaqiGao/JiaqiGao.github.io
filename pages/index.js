@@ -37,8 +37,8 @@ class Main extends Component {
       disabledButton: true,
       donationText: "Submit Donations",
       cq1: true,
-      cq2: false,
-      eq1: true
+      cq2: true,
+      eq1: false
     }
 
     this.handleStart = this.handleStart.bind(this);
