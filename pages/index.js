@@ -108,7 +108,6 @@ class Main extends Component {
   }
 
   handleChange(qId, checked) {
-    console.log(`student ${qId} is ${checked ? 'checked' : 'unchecked'}`);
     if (qId == "cq1"){
       this.setState({cq1: checked});
     }
