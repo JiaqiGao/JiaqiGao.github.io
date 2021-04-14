@@ -57,7 +57,7 @@ class Main extends Component {
     this.setState({
       endTime: Date.now(),
       disabledButton: false,
-      donationText: "Thanks for donating!"
+      donationText: "Thanks you!"
     })
   }
 
@@ -101,7 +101,7 @@ class Main extends Component {
             
           <p className={styles.description}>
             Click the button below when you're ready. 
-            <br/>You will be asked to choose from available donation options, then given a quick survery to fill out.
+            <br/>You will be asked to confirm your donation, then directed to fill out a quick survery.
           </p>
   
           { this.state.start ? 
