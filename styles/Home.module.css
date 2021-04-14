@@ -8,7 +8,7 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 3.5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -49,7 +49,7 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 .title,
@@ -60,7 +60,7 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
-  margin: 4rem;
+  margin: 1.5rem;
 }
 
 .code {
@@ -78,7 +78,7 @@
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
-  margin-top: 3rem;
+  margin-top: 2rem;
   z-index: 0;
 }
 

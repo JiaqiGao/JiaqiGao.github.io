@@ -18,7 +18,9 @@ class Donation extends Component {
     return (
       <div className={styles.card}>
         <h3>{this.props.title}</h3>
-        <Checkbox label={<label>Donate $10</label>} onClick={this.handleCheck} checked={this.props.checked}/>
+        <Checkbox label={<label>{this.props.msg1}</label>} onClick={this.handleCheck} checked={this.props.checked}/>
+        <br/><br/>
+        <Checkbox label={<label>{this.props.msg2}</label>} onClick={this.handleCheck} checked={!this.props.checked}/>
       </div>
     )
   }
@@ -42,8 +44,6 @@ class Main extends Component {
     this.handleStart = this.handleStart.bind(this);
     this.handleEnd = this.handleEnd.bind(this);
     this.handleChange = this.handleChange.bind(this);  // checkboxes
-
-    this.disableBlock = React.createRef();
   }
   
   handleStart(){
@@ -78,6 +78,7 @@ class Main extends Component {
     }
   }
 
+
   render(){
     return (
       <div className={styles.container}>
@@ -92,9 +93,14 @@ class Main extends Component {
           </h1>
   
           <p className={styles.description}>
-            Pretend this is a real donation portal for ✨Candidate X✨, your preferred, beloved💕 choice running in a local election!
+            Pretend this is a real donation portal for ✨Kirby✨, your preferred, beloved💕 candidate running in a local election!
             <br/>You want to support X's campaign with donations, without giving more than you can financially afford.
-            <br/><br/>Click the button below when you're ready. 
+          </p>
+
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/SSU_Kirby_artwork.png/220px-SSU_Kirby_artwork.png"/>
+            
+          <p className={styles.description}>
+            Click the button below when you're ready. 
             <br/>You will be asked to choose from available donation options, then given a quick survery to fill out.
           </p>
   
@@ -105,15 +111,29 @@ class Main extends Component {
 
             // CONTROL OPTIONS
             <div className={styles.grid, styles.start}>
-              <Donation title={"One-time donation"} onChange={this.handleChange} qId="cq1" checked={this.state.cq1}/>
-              <Donation title={"Monthly-time donation"} onChange={this.handleChange} qId="cq2" checked={this.state.cq2}/>
+              <Donation title={"One-time donation"} 
+                        msg1={"Donate $10"}
+                        msg2={"I want Kirby to lose!"}
+                        onChange={this.handleChange} 
+                        qId="cq1" 
+                        checked={this.state.cq1}/>
+
+              <Donation title={"Monthly-time donation"} 
+                        msg1={"Donate $10"} 
+                        msg2={"Tell Kirby you're a traitor and you want them to lose"} 
+                        onChange={this.handleChange} qId="cq2" checked={this.state.cq2}/>
             </div>
            
            : 
 
             // EXPERIMENT OPTIONS
             <div className={styles.grid, styles.start}>
-              <Donation title={"One-time donation"} onChange={this.handleChange} qId="eq1" checked={this.state.eq1}/>
+              <Donation title={"One-time donation"}
+                        msg1={"Donate $10"} 
+                        msg2={"No donation this time!"}  
+                        onChange={this.handleChange} 
+                        qId="eq1" 
+                        checked={this.state.eq1}/>
 
             </div> 
 
@@ -139,14 +159,9 @@ class Main extends Component {
         </main>
   
         <footer className={styles.footer}>
-          {/* <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{' '}
-            <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-          </a> */}
+          <p>
+            This was created for a class. Thank you!
+          </p>
         </footer>
       </div>
     )
