@@ -89,12 +89,12 @@ class Main extends Component {
   
         <main className={styles.main}>
           <h1 className={styles.title}>
-            Super Legit Donation Campaign Website
+            Kirby's Donation Campaign Website
           </h1>
   
           <p className={styles.description}>
             Pretend this is a real donation portal for ✨Kirby✨, your preferred, beloved💕 candidate running in a local election!
-            <br/>You want to support X's campaign with donations, without giving more than you can financially afford.
+            <br/>You want to support Kirby's campaign with donations, without giving more than you can financially afford.
           </p>
 
           <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/SSU_Kirby_artwork.png/220px-SSU_Kirby_artwork.png"/>
