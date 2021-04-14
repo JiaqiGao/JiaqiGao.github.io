@@ -1,3 +1,4 @@
 *main.css.map
 *.idea
 *.sass-cache
+node_modules

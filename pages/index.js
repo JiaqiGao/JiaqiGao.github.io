@@ -151,7 +151,7 @@ class Main extends Component {
   
         <main className={styles.main}>
           <h1 className={styles.title}>
-            Kirby's Donation Campaign Website
+            Kirby's Campaign Donation Website
           </h1>
   
           <p className={styles.description}>
