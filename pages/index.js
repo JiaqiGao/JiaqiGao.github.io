@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, { Component } from 'react'
 import styles from '../styles/Home.module.css'
-import { Button, Checkbox } from 'semantic-ui-react'
+import { Button, Checkbox, Container } from 'semantic-ui-react'
 
 class Donation extends Component {
   constructor(props){
@@ -15,14 +15,26 @@ class Donation extends Component {
   }
 
   render(){
-    return (
-      <div className={styles.card}>
-        <h3>{this.props.title}</h3>
-        <Checkbox label={<label>{this.props.msg1}</label>} onClick={this.handleCheck} checked={this.props.checked}/>
-        <br/><br/>
-        <Checkbox label={<label>{this.props.msg2}</label>} onClick={this.handleCheck} checked={!this.props.checked}/>
-      </div>
-    )
+    if (this.props.control_type) {
+      return (
+        <div className={styles.card}>
+          <h3>{this.props.title}</h3>
+          <Checkbox label={<label>{this.props.msg1}</label>} onClick={this.handleCheck} />
+          <br/><br/>
+          <label>Leave unchecked for no donation at this time.</label>
+        </div>
+      )
+    } else {
+      return (
+        <div className={styles.card}>
+          <h3>{this.props.title}</h3>
+          <Checkbox label={<label>{this.props.msg1}</label>} onClick={this.handleCheck} checked={this.props.checked}/>
+          <br/><br/>
+          <Checkbox label={<label>{this.props.msg2}</label>} onClick={this.handleCheck} checked={!this.props.checked}/>
+        </div>
+      )
+    }
+    
   }
 }
 
@@ -111,43 +123,46 @@ class Main extends Component {
 
             // CONTROL OPTIONS
             <div className={styles.grid, styles.start}>
-              <Donation title={"One-time donation"} 
-                        msg1={"Donate $10"}
-                        msg2={"I want Kirby to lose!"}
-                        onChange={this.handleChange} 
-                        qId="cq1" 
-                        checked={this.state.cq1}/>
-
-              <Donation title={"Monthly-time donation"} 
-                        msg1={"Donate $10"} 
-                        msg2={"Tell Kirby you're a traitor and you want them to lose"} 
-                        onChange={this.handleChange} qId="cq2" checked={this.state.cq2}/>
-            </div>
-           
-           : 
-
-            // EXPERIMENT OPTIONS
-            <div className={styles.grid, styles.start}>
               <Donation title={"One-time donation"}
                         msg1={"Donate $10"} 
                         msg2={"No donation this time!"}  
                         onChange={this.handleChange} 
                         qId="eq1" 
-                        checked={this.state.eq1}/>
-
+                        checked={this.state.eq1}
+                        control_type={true}/>
             </div> 
+           
+           : 
+
+            // EXPERIMENT OPTIONS
+            <div className={styles.grid, styles.start}>
+              <Donation title={"One-time donation"} 
+                        msg1={"Donate $10"}
+                        msg2={"I want Kirby to lose!"}
+                        onChange={this.handleChange} 
+                        qId="cq1" 
+                        checked={this.state.cq1}
+                        control_type={false}/>
+
+              <Donation title={"Monthly-time donation"} 
+                        msg1={"Donate $10"} 
+                        msg2={"Tell Kirby you're a traitor and you want them to lose"} 
+                        onChange={this.handleChange} qId="cq2" checked={this.state.cq2}
+                        control_type={false}/>
+            </div>
 
             }
 
             <br/>
 
-            <Button disabled={this.state.disabledButton} color='orange' floated='right'>
-              Take Survey!
-            </Button>
+              <Button disabled={this.state.disabledButton} color='orange' floated='right'>
+                Take Survey!
+              </Button>
+            
+              <Button disabled={!this.state.disabledButton} inverted color='green' onClick={this.handleEnd} floated='right'>
+                  {this.state.donationText}
+              </Button>
 
-            <Button disabled={!this.state.disabledButton} inverted color='green' floated='right' onClick={this.handleEnd}>
-                {this.state.donationText}
-            </Button>
           </div>
           
             :
@@ -160,7 +175,7 @@ class Main extends Component {
   
         <footer className={styles.footer}>
           <p>
-            This was created for a class. Thank you!
+            This website was created for a class. Thank you!
           </p>
         </footer>
       </div>
