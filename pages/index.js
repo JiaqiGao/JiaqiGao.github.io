@@ -69,7 +69,7 @@ class Main extends Component {
     this.setState({
       endTime: Date.now(),
       disabledButton: false,
-      donationText: "Thanks you!"
+      donationText: "Thank you!"
     })
   }
 
