@@ -80,21 +80,40 @@ class Main extends Component {
 
   handleEnd(){
     var total = 0;
-    if (this.state.cq1 || this.state.eq1){
-      total += 20;
+    if (this.state.controlStatus){
+      if (this.state.cq1){
+        total += 20;
+      }
+      if (this.state.cq2){
+        total += 15;
+      }
+      if (this.state.cq3){
+        total += 27;
+      }
+      if (this.state.cq4){
+        total += 12;
+      }
+      if (this.state.cq5){
+        total += 16;
+      }
+    }else{
+      if (this.state.eq1){
+        total += 20;
+      }
+      if (this.state.eq2){
+        total += 15;
+      }
+      if (this.state.eq3){
+        total += 27;
+      }
+      if (this.state.eq4){
+        total += 12;
+      }
+      if (this.state.eq5){
+        total += 16;
+      }
     }
-    if (this.state.cq2 || this.state.eq2){
-      total += 15;
-    }
-    if (this.state.cq3 || this.state.eq3){
-      total += 27;
-    }
-    if (this.state.cq4 || this.state.eq4){
-      total += 12;
-    }
-    if (this.state.cq5 || this.state.eq5){
-      total += 16;
-    }
+    
 
     // Create Qualtrics Query String
     var link = "https://uchicago.co1.qualtrics.com/jfe/form/SV_dgV556kBNVvZVmC?";
@@ -177,7 +196,7 @@ class Main extends Component {
           <p className={styles.description}>
             You will be asked to confirm your donation, then directed to fill out a quick survey.
             <br/>Click the button below when you're ready. 
-            <br/>Disclaimer: This donation portal is totally fake and your money is safe in your wallet (safe from this website at least).
+            <br/>Disclaimer: This donation portal is totally fake and your real money is safe in your wallet (safe from this website at least).
           </p>
   
           { this.state.start ? 
