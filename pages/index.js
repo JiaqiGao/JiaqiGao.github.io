@@ -144,8 +144,8 @@ class Main extends Component {
                         checked={this.state.cq1}
                         control_type={false}/>
 
-              <Donation title={"Monthly-time donation"} 
-                        msg1={"Donate $10"} 
+              <Donation title={"Monthly donation"} 
+                        msg1={"Donate $10 at the end of each month until the election in June"} 
                         msg2={"Tell Kirby you're a traitor and you want them to lose"} 
                         onChange={this.handleChange} qId="cq2" checked={this.state.cq2}
                         control_type={false}/>
