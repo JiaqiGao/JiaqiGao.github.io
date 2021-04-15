@@ -316,7 +316,7 @@ class Main extends Component {
             :
 
           <Button inverted color='green' onClick={this.handleStart} size='big'>
-            Alrighty, let's start.
+            Alrighty, let's starty.
           </Button> }
           
         </main>
