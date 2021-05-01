@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cisco Industrial Networks Viz</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+
+<body>
+  <div  id='graphic' class="container-fluid">
+    
+      <div  id='sections'>
+              <section class="step">
+                <div class="title">Cisco Industrial Network Interactive Visualizations</div>
+                Looking at a visualization that encapsulates so much flow data at once can be daunting.<br />
+                Let's examine the data first by where there is communication, then by how much<br>communication is happening measured by number of packets.
+                <br> <br> <br>
+		<h3>OVERVIEW</h3><br>
+                Here each blue line represents a flow between modules. 
+                <br>Opacity is being used to represent number of flows.
+              </section>
+
+              <br>
+              <div id='vis'>
+          
+                </div>
+            <br><br><br><br>
+
+            <section class="step">
+	      <h3>RECEIVE</h3><br>
+              Black circles indicate modules that did not receive any packets. 
+                <br>Size of red ones correspond to relative number of packets received (using log scale).
+                <br>Click on a circle to see the modules that sent packets to the selected module.
+
+                <br><br>
+            </section>
+                
+                <div id='vis2'>
+
+                </div>
+                <br><br><br><br>
+              
+		<section class="step">
+		  <h3>SEND</h3><br>
+                Black circles indicate modules that did not send any packets. 
+                <br>Size of blue ones correspond to relative number of packets sent (using log scale).
+                <br>Click on a circle to see the modules that received the packets sent by the selected module.
+                <br><br>
+            </section>
+                
+                <div id='vis3'>
+
+                </div>
+                <br><br><br><br>
+         
+      </div>
+      <br>
+      
+
+  </div>
+
+  <script src="lib/d3.js"></script>
+  <!-- <script src="js/scroller.js"></script> -->
+  <script src="js/sections.js"></script>
+</body>
+
+</html>
