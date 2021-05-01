@@ -325,7 +325,7 @@ class Main extends Component {
   
         <footer className={styles.footer}>
           <p>
-            This website was created from scratch for a UChicago class assignment using <a href="https://nextjs.org/">Next.js</a> and React. Thank you!
+            This website was scratched together for a UChicago class assignment using <a href="https://nextjs.org/">Next.js</a> and React. Thank you!
           </p>
         </footer>
       </div>
