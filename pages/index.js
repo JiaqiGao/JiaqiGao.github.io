@@ -182,7 +182,7 @@ class Main extends Component {
         </Head>
   
         <main className={styles.main}>
-          <h3>If you are here for my personal website, click <a href="actually-me/index.html">here</a> please! (Excuse my reuse of github pages haha!)</h3>
+          <h3 className={styles.personal}><a href="actually-me/index.html">If you are here for my personal website, click here please!</a> (Excuse my reuse of github pages haha!)</h3>
           <br />
           <h1 className={styles.title}>
             Kirby's Campaign Donation Website
@@ -325,7 +325,7 @@ class Main extends Component {
   
         <footer className={styles.footer}>
           <p>
-            This website was scratched together for a UChicago class assignment using <a href="https://nextjs.org/">Next.js</a> and React. Thank you!
+            This website was scratched together for a UChicago class assignment using Next.js and React. Thank you!
           </p>
         </footer>
       </div>

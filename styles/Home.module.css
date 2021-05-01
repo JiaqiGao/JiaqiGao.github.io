@@ -102,6 +102,11 @@
   border-color: #0070f3;
 }
 
+.personal {
+  text-decoration: underline;
+  text-decoration-color: teal;
+}
+
 .card h3 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
