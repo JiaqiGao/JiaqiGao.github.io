@@ -182,6 +182,8 @@ class Main extends Component {
         </Head>
   
         <main className={styles.main}>
+          <h3>If you are here for my personal website, click <a href="actually-me/index.html">here</a> please! (Excuse my reuse of github pages haha!)</h3>
+          <br />
           <h1 className={styles.title}>
             Kirby's Campaign Donation Website
           </h1>
