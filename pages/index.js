@@ -164,7 +164,7 @@ class Main extends Component {
     this.state = {
       controlStatus: Math.random() < 0.5,
       start: false,
-      ceramics: false,
+      ceramics: true,
       italy: false,
       startTime: (new Date(Date.now())).toDateString(),
       disabledButton: true,
