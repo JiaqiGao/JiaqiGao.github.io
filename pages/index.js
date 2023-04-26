@@ -144,7 +144,7 @@ class Bookmark extends Component {
       return ( 
         <div className={styles.bookmark}>
           { this.props.link ? 
-          <Button inverted basic color={this.props.color} size='big'>
+          <Button basic color={this.props.color} size='big'>
           <a target="_blank" rel="noopener noreferrer" href={this.props.link}>{this.props.text}</a>
           </Button>
            :
