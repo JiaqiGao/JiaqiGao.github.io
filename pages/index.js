@@ -85,11 +85,6 @@ const italy = [
   height: 3
 },
 {
-  src: "/images/IMG_0488.JPG",
-  width: 4,
-  height: 3
-},
-{
   src: "/images/IMG_0482.JPG",
   width: Math.floor(Math.random() * 3)+4,
   height: 3
