@@ -1,11 +1,9 @@
 {
-  "homepage": "http://JiaqiGao.github.io/dark-patterns",
-  "name": "dark-patterns",
-  "version": "0.1.0",
+  "homepage": "http://JiaqiGao.github.io/",
+  "name": "jiaqigao",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
-    "deploy": "gh-pages -d out",
-    "predeploy": "npm run build",
     "dev": "next dev",
     "export": "next export",
     "build": "next build && next export",

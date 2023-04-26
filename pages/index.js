@@ -4,7 +4,100 @@ import styles from '../styles/Home.module.css'
 import { Button, Divider } from 'semantic-ui-react'
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images"; 
-import photos from "../lib/images";
+
+const ceramics = [
+  {
+      src: "/images/IMG_0027.JPG",
+      width: 5,
+      height: 6
+  },
+  {
+      src: "/images/IMG_1591.JPG",
+      width: 4,
+      height: 5
+  },
+  {
+      src: "/images/IMG_1941.JPG",
+      width: 5,
+      height: 6
+  },
+  {
+      src: "/images/IMG_2042.JPG",
+      width: 5,
+      height: 5
+  },
+  {
+      src: "/images/IMG_2051.JPG",
+      width: 5,
+      height: 5
+  },
+  {
+      src: "/images/IMG_2062.JPG",
+      width: 4,
+      height: 6
+  },
+  {
+      src: "/images/IMG_2088.JPG",
+      width: 4,
+      height: 4
+  },
+  {
+      src: "/images/IMG_2091.JPG",
+      width: 4,
+      height: 4
+  },
+  {
+      src: "/images/IMG_2101.JPG",
+      width: 5,
+      height: 6
+  }
+]
+
+const italy = [
+{
+  src: "/images/IMG_0467.JPG",
+  width: Math.floor(Math.random() * 3)+4,
+  height: 3
+},
+{
+  src: "/images/IMG_0475.JPG",
+  width: Math.floor(Math.random() * 3)+4,
+  height: 3
+},
+{
+  src: "/images/IMG_0486.JPG",
+  width: 4,
+  height: 3
+},
+{
+  src: "/images/IMG_0491.JPG",
+  width: Math.floor(Math.random() * 3)+4,
+  height: 3
+},
+{
+  src: "/images/IMG_0493.JPG",
+  width: Math.floor(Math.random() * 3)+4,
+  height: 3
+},
+{
+  src: "/images/IMG_0492.JPG",
+  width: Math.floor(Math.random() * 3)+4,
+  height: 3
+},
+{
+  src: "/images/IMG_0488.JPG",
+  width: 4,
+  height: 3
+},
+{
+  src: "/images/IMG_0482.JPG",
+  width: Math.floor(Math.random() * 3)+4,
+  height: 3
+},
+]
+
+const photos = {ceramics, italy}
+
 
 function randomizeGallery(images){
   var randomize = Math.floor(Math.random() * images.length-1)+1;
