@@ -28,8 +28,8 @@ const ceramics = [
   },
   {
       src: "/images/IMG_2051.JPG",
-      width: 3,
-      height: 4
+      width: 5,
+      height: 7
   },
   {
       src: "/images/IMG_2062.JPG",
@@ -43,13 +43,13 @@ const ceramics = [
   },
   {
       src: "/images/IMG_2091.JPG",
-      width: 3,
-      height: 4
+      width: 5,
+      height: 6
   },
   {
       src: "/images/IMG_2101.JPG",
-      width: 3,
-      height: 4
+      width: 5,
+      height: 6
   }
 ]
 
@@ -100,7 +100,7 @@ function randomizeGallery(images){
 }
 
 function GalleryApp(gallery) {
-  const images = randomizeGallery(gallery["gallery"])
+  const images = gallery["gallery"];
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
