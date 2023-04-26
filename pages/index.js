@@ -228,7 +228,7 @@ class Main extends Component {
             </p>
 
             <div className={styles.description}>
-            <Bookmark text="Ceramics" color="green" clicker={this.handleCeramics}/>
+            <Bookmark text="ceramics" color="green" clicker={this.handleCeramics}/>
             <Bookmark text="that one time i went to italy" color="blue" clicker={this.handleItaly}/>
             <Bookmark text="instagram" color="yellow" link="https://www.instagram.com/jqig_/"/>
             <Bookmark text="linkedin" color="yellow" link="https://www.linkedin.com/in/JiaqiGao1"/>
