@@ -1,0 +1,114 @@
+#graphic {
+  padding-top: 60px;
+}
+
+#sections {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  z-index: 90;
+  text-align: center;
+}
+
+.step {
+  font-family: "TiemposTextWeb-Regular","Georgia";
+  font-size: 16px;
+  line-height: 23px;
+  color: #767678;
+}
+
+.intro2 {
+  width: 300px;
+  height: 600px;
+  font-family: Arial,Helvetica,"san-serif";
+  font-size: 18px;
+  text-anchor: right;
+  
+}
+
+#sections .title {
+  font-family: Arial,Helvetica,"san-serif";
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #262626;
+  line-height: 1.2em;
+}
+
+#vis {
+  display: inline-block;
+  z-index: 100;
+  margin-left: 0;
+  height: 500px; 
+  width: 600px;
+  /* background-color: #ddd; */
+}
+
+#vis2 {
+  display: inline-block;
+  z-index: 100;
+  margin-left: 0;
+  height: 500px; 
+  width: 600px;
+  /* background-color: #ddd; */
+}
+
+#vis3 {
+  display: inline-block;
+  z-index: 100;
+  margin-left: 0;
+  height: 500px; 
+  width: 600px;
+  /* background-color: #ddd; */
+}
+
+#vis .title {
+  font-size:120px;
+  text-anchor: middle;
+}
+
+#vis .sub-title {
+  font-size:80px;
+  text-anchor: middle;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #666;
+  shape-rendering: crispEdges;
+}
+
+.highlight {
+  fill: #008080;
+  font-weight: bold;
+}
+
+.cough-arrow {
+  stroke: #000;
+  stroke-width: 4px;
+
+}
+
+.intro {
+  font-family: Arial,Helvetica,"san-serif";
+  font-size: 20px;
+  text-anchor: right;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: .5rem;
+  background: #FFFFFF;
+  color: #313639;
+  border: 1px solid #313639;
+  border-radius: 8px;
+  pointer-events: none;
+  font-size: 1.3rem;
+}
+
+#extra-space {
+  height: 300px;
+  z-index: 5;
+}
