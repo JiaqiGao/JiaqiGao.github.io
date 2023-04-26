@@ -115,8 +115,8 @@ function GalleryApp(gallery) {
   };
 
   return (
-    <div>
-      <Gallery photos={images} onClick={openLightbox} />
+    <div style={{width: '100vw'}}>
+      <Gallery photos={images} onClick={openLightbox}  />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
