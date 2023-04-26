@@ -8,48 +8,48 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 const ceramics = [
   {
       src: "/images/IMG_0027.JPG",
-      width: 5,
-      height: 6
+      width: 3,
+      height: 4
   },
   {
       src: "/images/IMG_1591.JPG",
-      width: 4,
-      height: 5
+      width: 3,
+      height: 4
   },
   {
       src: "/images/IMG_1941.JPG",
-      width: 5,
-      height: 6
+      width: 3,
+      height: 4
   },
   {
       src: "/images/IMG_2042.JPG",
-      width: 5,
-      height: 5
+      width: 3,
+      height: 4
   },
   {
       src: "/images/IMG_2051.JPG",
-      width: 5,
-      height: 5
+      width: 3,
+      height: 4
   },
   {
       src: "/images/IMG_2062.JPG",
-      width: 4,
-      height: 6
+      width: 3,
+      height: 4
   },
   {
       src: "/images/IMG_2088.JPG",
-      width: 4,
+      width: 3,
       height: 4
   },
   {
       src: "/images/IMG_2091.JPG",
-      width: 4,
+      width: 3,
       height: 4
   },
   {
       src: "/images/IMG_2101.JPG",
-      width: 5,
-      height: 6
+      width: 3,
+      height: 4
   }
 ]
 
