@@ -47,6 +47,11 @@ const ceramics = [
       height: 6
   },
   {
+      src: "/images/pottery/IMG_2128.jpg",
+      width: 5,
+      height: 6
+  },
+  {
       src: "/images/pottery/IMG_2130.jpg",
       width: 5,
       height: 6
