@@ -7,47 +7,62 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 
 const ceramics = [
   {
-      src: "/images/IMG_0027.JPG",
+      src: "/images/pottery/IMG_2112.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/IMG_1591.JPG",
+      src: "/images/pottery/IMG_2115.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/IMG_1941.JPG",
+      src: "/images/pottery/IMG_2117.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/IMG_2042.JPG",
+      src: "/images/pottery/IMG_2119.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/IMG_2051.JPG",
+      src: "/images/pottery/IMG_2122.jpg",
       width: 5,
       height: 7
   },
   {
-      src: "/images/IMG_2062.JPG",
+      src: "/images/pottery/IMG_2123.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/IMG_2088.JPG",
+      src: "/images/pottery/IMG_2125.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/IMG_2091.JPG",
+      src: "/images/pottery/IMG_2126.jpg",
       width: 5,
       height: 6
   },
   {
-      src: "/images/IMG_2101.JPG",
+      src: "/images/pottery/IMG_2130.jpg",
+      width: 5,
+      height: 6
+  },
+  {
+      src: "/images/pottery/IMG_2132.jpg",
+      width: 5,
+      height: 6
+  },
+  {
+      src: "/images/pottery/IMG_2136.jpg",
+      width: 5,
+      height: 6
+  },
+  {
+      src: "/images/pottery/IMG_2137.jpg",
       width: 5,
       height: 6
   }
