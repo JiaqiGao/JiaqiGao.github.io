@@ -7,32 +7,72 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 
 const ceramics = [
   {
-      src: "/images/pottery/IMG_2112.jpg",
+      src: "/images/pottery/IMG_9406.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/pottery/IMG_2115.jpg",
+      src: "/images/pottery/IMG_9404.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/pottery/IMG_2117.jpg",
+      src: "/images/pottery/IMG_9403.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/pottery/IMG_2119.jpg",
+      src: "/images/pottery/IMG_9401.jpg",
       width: 3,
       height: 4
   },
   {
-      src: "/images/pottery/IMG_2122.jpg",
+      src: "/images/pottery/IMG_9399.jpg",
       width: 5,
       height: 7
   },
   {
-      src: "/images/pottery/IMG_2123.jpg",
+      src: "/images/pottery/IMG_9397.jpg",
+      width: 3,
+      height: 4
+  },
+  {
+      src: "/images/pottery/IMG_9395.jpg",
+      width: 3,
+      height: 4
+  },
+  {
+      src: "/images/pottery/IMG_9393.jpg",
+      width: 3,
+      height: 4
+  },
+  {
+      src: "/images/pottery/IMG_9389.jpg",
+      width: 3,
+      height: 4
+  },
+  {
+      src: "/images/pottery/IMG_2136.jpg",
+      width: 3,
+      height: 4
+  },
+  {
+      src: "/images/pottery/IMG_2132.jpg",
+      width: 3,
+      height: 4
+  },
+  {
+      src: "/images/pottery/IMG_2130.jpg",
+      width: 3,
+      height: 4
+  },
+  {
+      src: "/images/pottery/IMG_2127.jpg",
+      width: 3,
+      height: 4
+  },
+  {
+      src: "/images/pottery/IMG_2126.jpg",
       width: 3,
       height: 4
   },
@@ -40,36 +80,6 @@ const ceramics = [
       src: "/images/pottery/IMG_2125.jpg",
       width: 3,
       height: 4
-  },
-  {
-      src: "/images/pottery/IMG_2126.jpg",
-      width: 5,
-      height: 6
-  },
-  {
-      src: "/images/pottery/IMG_2127.jpg",
-      width: 5,
-      height: 6
-  },
-  {
-      src: "/images/pottery/IMG_2130.jpg",
-      width: 5,
-      height: 6
-  },
-  {
-      src: "/images/pottery/IMG_2132.jpg",
-      width: 5,
-      height: 6
-  },
-  {
-      src: "/images/pottery/IMG_2136.jpg",
-      width: 5,
-      height: 6
-  },
-  {
-      src: "/images/pottery/IMG_2137.jpg",
-      width: 5,
-      height: 6
   }
 ]
 
